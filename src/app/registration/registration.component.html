@@ -1,0 +1,32 @@
+<div class="outer-container">
+    <h2> Registration </h2>
+        <form class="form-container">
+        
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label> Name
+              </mat-label>
+              <input matInput required>
+              <!-- <mat-error *ngIf="trialForm.controls['name'].touched && trialForm.controls['name'].invalid">
+                <span *ngIf="trialForm.controls['name'].errors !== null && trialForm.controls['name'].errors['required']">This field is mandatory.</span>
+              </mat-error> -->
+            </mat-form-field>
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label> E-mail
+              </mat-label>
+              <input matInput required>
+              <!-- <mat-error *ngIf="trialForm.controls['email'].touched && trialForm.controls['email'].invalid">
+                <span *ngIf="trialForm.controls['email'].errors !== null && trialForm.controls['email'].errors['required']">This field is mandatory.</span>
+                <span *ngIf="trialForm.controls['email'].errors !== null && trialForm.controls['email'].errors['email']"> Please enter a proper email</span>
+              </mat-error> -->
+            </mat-form-field>
+            <mat-form-field class="form-field" appearance="outline">
+              <mat-label> Organisation
+              </mat-label>
+              <input matInput required>
+              <!-- <mat-error *ngIf="trialForm.controls['org'].touched && trialForm.controls['org'].invalid">
+                <span *ngIf="trialForm.controls['org'].errors !== null && trialForm.controls['org'].errors['required']">This field is mandatory.</span>
+              </mat-error> -->
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit"  style="width : 10em;">Submit</button>
+          </form>
+        </div>

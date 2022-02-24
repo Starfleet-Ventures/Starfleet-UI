@@ -2,17 +2,17 @@
 <app-header></app-header>
 
 <mat-grid-list cols="1" rows="4" rowHeight="40.625rem" gutterSize="0px">
-  <mat-grid-tile class="home">
+  <mat-grid-tile id="home" class="home">
     <app-home fxLayout="row" fxLayoutAlign="space-around center" fxFlexFill></app-home>
   </mat-grid-tile>
-  <mat-grid-tile class="about">
+  <mat-grid-tile id="about" class="about">
     <app-about fxLayout="row" fxLayoutAlign="space-around center" fxFlexFill></app-about>
   </mat-grid-tile>
 
-  <mat-grid-tile class="testimonial">
+  <mat-grid-tile id="testimonials" class="testimonials">
     <app-testimonial fxLayout="row" fxLayoutAlign="space-around center" fxFill></app-testimonial>
   </mat-grid-tile>
-  <mat-grid-tile class="registration">
+  <mat-grid-tile id="contact-us" class="registration">
     <app-registration id="registration"></app-registration>
   </mat-grid-tile>
 </mat-grid-list>

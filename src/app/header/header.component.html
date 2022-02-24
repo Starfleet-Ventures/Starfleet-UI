@@ -1,10 +1,16 @@
 <mat-toolbar class="toolbar">
-    <span>Starfleet Logo</span>
+  <button mat-icon-button class="icon" aria-label="Example icon-button with heart icon">
+    <span><a pageScroll href="#home" style="text-decoration: none; color: black;"><mat-icon svgIcon="logo"></mat-icon></a></span>
+  </button>
+    
     <span class="example-spacer"></span>
     <button mat-icon-button class="icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
+      <span><a pageScroll href="#about" style="text-decoration: none; color: black; font-size: small;">ABOUT</a></span>
     </button>
-    <button mat-icon-button class="icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
+    <button mat-icon-button class="icon" aria-label="Example icon-button with heart icon">
+      <span><a pageScroll href="#testimonials" style="text-decoration: none; color: black; font-size: small;">TESTIMONIALS</a></span>
+    </button>
+    <button mat-icon-button class="contact-us" aria-label="Example icon-button with heart icon">
+      <span><a pageScroll href="#contact-us" style="text-decoration: none; color: white; font-size: small;">CONTACT US</a></span>
     </button>
   </mat-toolbar>

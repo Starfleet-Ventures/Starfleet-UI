@@ -16,7 +16,8 @@ import {MatCardModule} from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-
+import { HttpClientModule } from "@angular/common/http";
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
@@ -44,7 +45,9 @@ import { RegistrationComponent } from './registration/registration.component';
     MatCardModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    NgxPageScrollCoreModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

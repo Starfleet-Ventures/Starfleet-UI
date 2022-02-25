@@ -12,7 +12,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatCardModule} from '@angular/material/card';
-
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
 import { FormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -49,7 +50,9 @@ import { RegistrationComponent } from './registration/registration.component';
     MatInputModule,
     NgxPageScrollCoreModule,
     HttpClientModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDividerModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

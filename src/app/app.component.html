@@ -1,16 +1,16 @@
 
 <app-header></app-header>
 
-<mat-grid-list cols="1" rows="4" rowHeight="40.625rem" gutterSize="0px">
+<mat-grid-list cols="1" rows="4" rowHeight="45rem" gutterSize="0px">
   <mat-grid-tile id="home" class="home">
     <app-home fxLayout.gt-sm="row" fxLayout.lt-sm="column" fxLayoutAlign.lt-sm="center center" fxLayoutAlign.gt-sm="space-between center" fxFlexFill></app-home>
   </mat-grid-tile>
   <mat-grid-tile id="about" class="about">
-    <app-about fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-around center" fxFlexFill></app-about>
+    <app-about fxLayout.gt-sm="row" fxLayout.lt-sm="column" fxLayoutAlign.lt-sm="center center" fxLayoutAlign.gt-sm="space-between center" fxFlexFill></app-about>
   </mat-grid-tile>
 
   <mat-grid-tile id="testimonials" class="testimonials">
-    <app-testimonial fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="10px" fxLayoutAlign.gt-md="space-around center" fxFill></app-testimonial>
+    <app-testimonial fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around center"></app-testimonial>
   </mat-grid-tile>
   <mat-grid-tile id="contact-us" class="registration">
     <app-registration id="registration"></app-registration>

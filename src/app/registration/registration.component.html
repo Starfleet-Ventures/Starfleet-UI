@@ -1,8 +1,7 @@
-<div class="outer-container">
-    <h2> Demo Request Form </h2>
-        <form>
-          <div fxFlexFill fxLayout="column" fxLayoutGap="5px">
-          <div fxLayout="row" fxLayoutGap="10px">
+    <h2 style="text-align: center;"> Demo Request Form </h2>
+        <form >
+          <!-- <div fxFlexFill fxLayout="column" fxLayoutGap="5px"> -->
+          <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap.lt-sm="5px" fxLayoutGap="10px">
             <div fxFlex="50%">
               <mat-form-field class="form-field" appearance="outline">
                 <mat-label> Name
@@ -89,7 +88,6 @@
               </mat-form-field>
             </div>  
           </div>
-        </div>
-        <button mat-raised-button type="submit" style="background-color: orange; color: white; border-radius: 25px; margin-top:10px; width : 15em;">Submit</button>   
+        <!-- </div> -->
+        <button fxFill mat-raised-button type="submit" style="background-color: orange; color: white;">Submit</button>   
 </form>
-</div>

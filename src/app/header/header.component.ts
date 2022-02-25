@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
       
     },
     {
-      label: 'Demo',
+      label: 'Request A Demo',
       href: '#contact-us',
       showOnMobile: true,
       showOnTablet: true,

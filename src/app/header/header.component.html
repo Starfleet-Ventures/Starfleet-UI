@@ -1,15 +1,16 @@
 <mat-toolbar fxLayout="row" fxLayoutAlign="end center" class="toolbar">
-  <button mat-icon-button class="icon" aria-label="Starfleet icon">
-    <span><a pageScroll href="#home" style="text-decoration: none; color: black;"><mat-icon svgIcon="logo"></mat-icon></a></span>
-  </button>
+  <a pageScroll href="#home" style="text-decoration: none; color: black;">
+  <button mat-icon-button disableRipple class="icon" aria-label="Starfleet icon">
+    <mat-icon svgIcon="logo"></mat-icon>
+  </button></a>
   <span class="example-spacer"></span>
   <ng-container 
   *ngFor="let item of menuItems" >
-  <span [ngClass]="item.label === 'Demo' ? 'icon contact-us' : 'icon'"
+  <span [ngClass]="item.label === 'Request A Demo' ? 'icon contact-us' : 'icon'"
   [fxShow]="item.showOnDesktop" 
   [fxShow.xs]="item.showOnMobile" 
   [fxShow.sm]="item.showOnTablet">
-    <a pageScroll [href]="item.href" class="link-decor" [ngStyle]="item.label === 'Demo'?{'color':'white'}:{'color':'black'}">{{item.label}}</a>
+    <a pageScroll [href]="item.href" class="link-decor" [ngStyle]="item.label === 'Request A Demo'?{'color':'white'}:{'color':'black'}">{{item.label}}</a>
   </span>
     
   
@@ -30,35 +31,4 @@
 </ng-container>
 
     
-      <!-- <span class="icon"><a pageScroll href="#testimonials" style="text-decoration: none; color: black; font-size: small;">TESTIMONIALS</a></span>
-
-      <span class="icon contact-us"><a pageScroll href="#contact-us" style="text-decoration: none; color: white; font-size: small;"> Demo Request</a></span>
-     -->
-    
   </mat-toolbar>
-
-  <!-- <mat-toolbar fxLayout="row" color="primary">
-    <span fxFlex>Responsive Toolbar Demo</span>
-    <button mat-button *ngFor="let item of menuItems" [fxShow]="item.showOnDesktop" [fxShow.xs]="item.showOnMobile"
-        [fxShow.sm]="item.showOnTablet">
-        <mat-icon class="mr">{{item.icon}}</mat-icon>
-        {{item.label}}
-    </button>
-    <ng-container>
-        <button fxShow="true" fxHide.gt-sm mat-icon-button [matMenuTriggerFor]="dropMenu">
-            <mat-icon>more_vert</mat-icon>
-        </button>
-        <mat-menu fxShow="true" fxHide.gt-sm  #dropMenu="matMenu">
-            <ng-container *ngFor="let item of menuItems; index as i">
-                <div [fxShow]="!item.showOnDesktop" [fxShow.sm]="!item.showOnTablet" [fxShow.xs]="!item.showOnMobile">
-                    <button mat-menu-item>
-                        <mat-icon class="mr">{{item.icon}}</mat-icon>
-                        {{item.label}}
-                    </button>
-                    <mat-divider *ngIf="i-1 === menuItems.length"></mat-divider>
-                </div>
-            </ng-container>
-        </mat-menu>
-    </ng-container>
-  </mat-toolbar> -->
-  

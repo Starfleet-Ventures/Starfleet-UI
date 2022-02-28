@@ -12,8 +12,8 @@ export class AppService{
     // getLanguages(){
     //     return this.httpClient.get<{response: [{'_id': String, "value": String, "viewValue": String}]}>(this.SERVER_URL+'getLanguage');
     // }
-    // postFormData(data: FormData){
-    //     //API CALL
-    //     return this.httpClient.post<{message: String}>(this.SERVER_URL+'postForm', data);
-    // }
+    postDemoFormData(data: FormData){
+        //API CALL
+        return this.httpClient.post<{message: String}>(this.SERVER_URL+'postDemoForm', data);
+    }
 }

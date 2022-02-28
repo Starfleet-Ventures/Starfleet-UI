@@ -6,7 +6,7 @@
               <mat-form-field class="form-field" appearance="outline">
                 <mat-label> Name
                 </mat-label>
-                <input matInput formControlName="name" required>
+                <input type="text" matInput formControlName="name" required>
                 <mat-error *ngIf="demoForm.controls['name'].touched && demoForm.controls['name'].invalid">
                   <br>
                   <span *ngIf="demoForm.controls['name'].errors !== null && demoForm.controls['name'].errors['required']">This field is mandatory.</span>
@@ -17,7 +17,7 @@
               <mat-form-field class="form-field" appearance="outline">
                 <mat-label> Organisation
                 </mat-label>
-                <input matInput formControlName="org" required>
+                <input type="text" matInput formControlName="org" required>
                 <mat-error *ngIf="demoForm.controls['org'].touched && demoForm.controls['org'].invalid">
                   <br>
                   <span *ngIf="demoForm.controls['org'].errors !== null && demoForm.controls['org'].errors['required']">This field is mandatory.</span>
@@ -40,7 +40,7 @@
                 </mat-autocomplete>
                 <mat-error *ngIf="demoForm.controls['ccode'].touched && demoForm.controls['ccode'].invalid">
                   <br>
-                  <span style="font-size:x-small; white-space: nowrap;" *ngIf="demoForm.controls['ccode'].errors !== null && demoForm.controls['ccode'].errors['pattern']">Pattern must be '+XX'.</span>
+                  <!-- <span style="font-size:x-small; white-space: nowrap;" *ngIf="demoForm.controls['ccode'].errors !== null && demoForm.controls['ccode'].errors['pattern']">Pattern must be '+XX'.</span> -->
                   <span style="font-size:x-small; white-space: nowrap;" *ngIf="demoForm.controls['ccode'].errors !== null && demoForm.controls['ccode'].errors['required']">Required.</span>
                 </mat-error>
                   </mat-form-field>
@@ -51,7 +51,7 @@
               <mat-form-field class="form-field" appearance="outline">
                 <mat-label> Phone Number
                 </mat-label>
-                <input matInput formControlName="phone" required>
+                <input type="text" matInput formControlName="phone" required>
                 <mat-error *ngIf="demoForm.controls['phone'].touched && demoForm.controls['phone'].invalid">
                   <br>
                   <span style="font-size:x-small; white-space: nowrap;" *ngIf="demoForm.controls['phone'].errors !== null && demoForm.controls['phone'].errors['pattern']">Only numbers are valid.</span>
@@ -63,7 +63,7 @@
               <mat-form-field class="form-field" appearance="outline">
                 <mat-label> Designation
                 </mat-label>
-                <input matInput formControlName="designation" required>
+                <input type="text" matInput formControlName="designation" required>
                 <mat-error *ngIf="demoForm.controls['designation'].touched && demoForm.controls['designation'].invalid">
                   <br>
                   <span *ngIf="demoForm.controls['designation'].errors !== null && demoForm.controls['designation'].errors['required']">This field is mandatory.</span>
@@ -76,7 +76,7 @@
               <mat-form-field class="form-field" appearance="outline">
                 <mat-label> Email
                 </mat-label>
-                <input matInput formControlName="email" required>
+                <input type="email" matInput formControlName="email" required>
                 <mat-error *ngIf="demoForm.controls['email'].touched && demoForm.controls['email'].invalid">
                   <br>
                   <span *ngIf="demoForm.controls['email'].errors !== null && demoForm.controls['email'].errors['required']">This field is mandatory.</span>

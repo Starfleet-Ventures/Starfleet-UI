@@ -16,8 +16,8 @@ export class RegistrationComponent implements OnInit {
   demoForm = new FormGroup({
     name: new FormControl('', Validators.required),
     org: new FormControl('', Validators.required),
-    ccode: new FormControl('', [Validators.required,Validators.pattern(new RegExp('^\\+[0-9]*$'))]),
-    phone: new FormControl('', [Validators.required,Validators.pattern(new RegExp('^[0-9]*$'))]),
+    ccode: new FormControl('', [Validators.required]), // 
+    phone: new FormControl('', [Validators.required,Validators.pattern(/^[0-9]\d*$/)]), // Validators.pattern(new RegExp('^[0-9]*'))
     designation: new FormControl('', Validators.required),
     email:  new FormControl('', [Validators.required,Validators.email]),
     message: new FormControl('',Validators.required),  
@@ -34,7 +34,7 @@ export class RegistrationComponent implements OnInit {
     });
     this.filteredCcodeOptions = this.demoForm.controls['ccode'].valueChanges.pipe(
       startWith(''),
-      map(value => (typeof value === 'string' ? value : value === undefined || value === null? '':value.dial_code)),
+      map(value => (typeof value === 'string' ? value : value === undefined || value === null? '': value.dial_code)),
       map(name => (name ? this._filter(name) : this.cclist.slice())),
     );
   }
@@ -56,7 +56,14 @@ export class RegistrationComponent implements OnInit {
   private _createFormData(): FormData{
     const formData = new FormData();
     Object.keys( this.demoForm.controls).forEach(key => {
+      if(key === 'ccode'){
+        // console.log(this.demoForm.get(key));
+        console.log(this.demoForm.get(key).value.dial_code);
+        formData.append(key, this.demoForm.get(key).value.dial_code);
+      }else{
         formData.append(key, this.demoForm.get(key).value);
+      }
+      
    });
     return formData;
   }
@@ -67,10 +74,19 @@ export class RegistrationComponent implements OnInit {
     
     const formData = this._createFormData();
     //API CALL STARTS
-    formData.forEach((val,key)=>{
-      console.log(key,val);
-    })
-
+    // formData.forEach((val,key)=>{
+    //   console.log(key,val);
+    // })
+    this.appService.postDemoFormData(formData).subscribe((success)=>{
+      console.log(success.message);
+      
+    },(failure)=>{
+      console.log("failed");
+      }
+    );
+    
+    
+    
     this._reset();
   }
 

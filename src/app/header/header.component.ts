@@ -8,11 +8,30 @@ import {HeaderItemList} from './model/header.model';
 export class HeaderComponent implements OnInit {
   menuItems: HeaderItemList[] = [
     {
+      label: 'Login',
+      href: '/login',
+      showOnMobile: false,
+      showOnTablet: false,
+      showOnDesktop: false,
+      onlyOnMenu: true
+      
+    },
+    {
+      label: 'Register',
+      href: '/register',
+      showOnMobile: false,
+      showOnTablet: false,
+      showOnDesktop: false,
+      onlyOnMenu: true
+      
+    },
+    {
       label: 'About',
       href: '#about',
       showOnMobile: false,
       showOnTablet: true,
       showOnDesktop: true,
+      onlyOnMenu: false
       
     },
     {
@@ -21,6 +40,7 @@ export class HeaderComponent implements OnInit {
       showOnMobile: false,
       showOnTablet: false,
       showOnDesktop: true,
+      onlyOnMenu: false
       
     },
     {
@@ -29,6 +49,7 @@ export class HeaderComponent implements OnInit {
       showOnMobile: true,
       showOnTablet: true,
       showOnDesktop: true,
+      onlyOnMenu: false
       
     },
    

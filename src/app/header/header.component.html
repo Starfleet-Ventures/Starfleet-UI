@@ -17,15 +17,20 @@
   </ng-container>
   
   <ng-container>
-    <button fxShow="true" fxHide.gt-sm mat-icon-button [matMenuTriggerFor]="dropMenu">
+    <button mat-icon-button [matMenuTriggerFor]="dropMenu">
         <mat-icon>more_vert</mat-icon>
     </button>
-    <mat-menu class="menu" fxShow="true" fxHide.gt-sm  #dropMenu="matMenu">
+    <mat-menu class="menu" #dropMenu="matMenu">
         <ng-container *ngFor="let item of menuItems; index as i">
-            <div [fxShow]="!item.showOnDesktop" [fxShow.sm]="!item.showOnTablet" [fxShow.xs]="!item.showOnMobile">
+          
+            <div *ngIf="item.onlyOnMenu === false; else other_condition" [fxShow]="!item.showOnDesktop" [fxShow.sm]="!item.showOnTablet" [fxShow.xs]="!item.showOnMobile">
               <a mat-menu-item pageScroll [href]="item.href" class="link-decor">{{item.label}}</a>  
-                <mat-divider *ngIf="i-1 === menuItems.length"></mat-divider>
+                
             </div>
+            <ng-template  #other_condition>
+              <a fxShow="true" fxHide.lt-sm mat-menu-item pageScroll [routerLink]="item.href" class="link-decor">{{item.label}}</a>    
+            </ng-template>
+            <mat-divider *ngIf="i-1 === menuItems.length"></mat-divider>
         </ng-container>
     </mat-menu>
 </ng-container>

@@ -4,4 +4,5 @@ export interface HeaderItemList {
     showOnMobile: boolean;
     showOnTablet: boolean;
     showOnDesktop: boolean;
+    onlyOnMenu: boolean;
   }

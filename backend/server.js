@@ -35,6 +35,9 @@ app.post('/postDemoForm',upload.none(),async (req,res)=>{
 app.get('/getCountriesInfo', (req,res)=>{
     res.status(200).json({response:cclist,count: cclist.length});
 });
+app.get('*',(req,res)=>{
+  res.sendFile(path.join(__dirname,'..','dist','starfleet','index.html'));
+})
 app.listen(PORT, function () {
     console.log('server started at port : '+PORT);
 });

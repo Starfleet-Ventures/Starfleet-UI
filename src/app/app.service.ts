@@ -16,4 +16,13 @@ export class AppService{
         //API CALL
         return this.httpClient.post<{message: String}>(this.SERVER_URL+'postDemoForm', data);
     }
+
+    postRegistrationFormData(data: FormData){
+        //API CALL
+        return this.httpClient.post<{message: string, target: string}>(this.SERVER_URL+'register', data);
+    }
+    postLoginFormData(data: FormData){
+        //API CALL
+        return this.httpClient.post<{message: string, target: string}>(this.SERVER_URL+'login', data);
+    }
 }

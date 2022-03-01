@@ -4,7 +4,8 @@
     <mat-icon svgIcon="logo"></mat-icon>
   </button></a>
   <span class="example-spacer"></span>
-  <ng-container 
+  <ng-container *ngIf="router.url !== '/map'; else map_condition">
+    <ng-container 
   *ngFor="let item of menuItems" >
   <span [ngClass]="item.label === 'Request A Demo' ? 'icon contact-us' : 'icon'"
   [fxShow]="item.showOnDesktop" 
@@ -28,12 +29,16 @@
                 
             </div>
             <ng-template  #other_condition>
-              <a fxShow="true" fxHide.lt-sm mat-menu-item pageScroll [routerLink]="item.href" class="link-decor">{{item.label}}</a>    
+              <a fxShow="true" fxHide.lt-sm mat-menu-item [routerLink]="item.href" class="link-decor">{{item.label}}</a>    
             </ng-template>
             <mat-divider *ngIf="i-1 === menuItems.length"></mat-divider>
         </ng-container>
     </mat-menu>
 </ng-container>
 
+  </ng-container>
+  <ng-template #map_condition>
+    <a href="/logout" class="icon logout">Logout</a>  
+  </ng-template>
     
   </mat-toolbar>

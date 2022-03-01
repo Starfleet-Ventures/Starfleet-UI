@@ -30,6 +30,7 @@ import { TestimonialComponent } from './testimonial/testimonial.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { RegisterComponent } from './register/register.component';
     TestimonialComponent,
     RegistrationComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

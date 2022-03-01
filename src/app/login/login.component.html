@@ -4,15 +4,26 @@
         <br>
         <mat-card-subtitle style="text-align: center; color: red;">Internal Purposes Only</mat-card-subtitle>
         <br>
+        <form [formGroup]="loginForm" (submit)="submit()">
         <mat-card-content fxLayout="column">
             <mat-form-field>
-                <input matInput placeholder="Username">
+                <input type="text" matInput formControlName="username" placeholder="Username" required>
+                <mat-error *ngIf="loginForm.controls['username'].touched && loginForm.controls['username'].invalid">
+                    <br>
+                    <span *ngIf="loginForm.controls['username'].errors !== null && loginForm.controls['username'].errors['required']">This field is mandatory.</span>
+                </mat-error>
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Password">
+                <input type="password" matInput formControlName="password" placeholder="Password" required>
+                <mat-error *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].invalid">
+                    <br>
+                    <span *ngIf="loginForm.controls['password'].errors !== null && loginForm.controls['password'].errors['required']">This field is mandatory.</span>
+                </mat-error>
             </mat-form-field>
+
         </mat-card-content>
         <br>
         <button fxFlexFill mat-raised-button class="btn">Login</button>
+        </form>
     </mat-card>
 </div>

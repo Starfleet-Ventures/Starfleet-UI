@@ -4,19 +4,33 @@
         <br>
         <mat-card-subtitle style="text-align: center; color: red;">Internal Purposes Only</mat-card-subtitle>
         <br>
+        <form [formGroup]="registerForm" (submit)="submit()">
         <mat-card-content fxLayout="column">
             <mat-form-field>
-                <input matInput placeholder="Username">
+                <input type="text" matInput formControlName="username" placeholder="Username" required>
+                <mat-error *ngIf="registerForm.controls['username'].touched && registerForm.controls['username'].invalid">
+                    <br>
+                    <span *ngIf="registerForm.controls['username'].errors !== null && registerForm.controls['username'].errors['required']">This field is mandatory.</span>
+                </mat-error>
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Email">
+                <input type="email" matInput formControlName="email" placeholder="Email" required>
+                <mat-error *ngIf="registerForm.controls['email'].touched && registerForm.controls['email'].invalid">
+                    <br>
+                    <span *ngIf="registerForm.controls['email'].errors !== null && registerForm.controls['email'].errors['required']">This field is mandatory.</span>
+                </mat-error>
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Password">
+                <input type="password" matInput formControlName="password" placeholder="Password" required>
+                <mat-error *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].invalid">
+                    <br>
+                    <span *ngIf="registerForm.controls['password'].errors !== null && registerForm.controls['password'].errors['required']">This field is mandatory.</span>
+                </mat-error>
             </mat-form-field>
         </mat-card-content>
         <br>
-        <button fxFlexFill mat-raised-button class="btn">Login</button>
+        <button type="submit" fxFlexFill mat-raised-button class="btn">Login</button>
+    </form>
     </mat-card>
     
 </div>

@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AppService } from '../app.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,6 +11,8 @@ import { Router } from '@angular/router';
   providers: [AppService]
 })
 export class LoginComponent implements OnInit {
+  message: string;
+  link: string;
   loginForm = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('',Validators.required) 
@@ -42,8 +45,16 @@ export class LoginComponent implements OnInit {
           break;
       }
     },(fail)=>{
-      console.log("Failure")
-      console.log(fail.message);
+      switch(fail.error.target){
+        case 'no_user_exists':
+          this.message = "No User Exists for the provided username and password combination. Please Register";
+          this.link = "http://13.127.219.224:3003/register";
+          break;
+        case 'wrong_password':
+          this.message = "Entered Password is Incorrect";
+          this.link = undefined;
+          break;
+      }
     })
   }
 }

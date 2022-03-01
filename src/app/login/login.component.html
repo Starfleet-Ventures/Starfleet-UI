@@ -4,6 +4,9 @@
         <br>
         <mat-card-subtitle style="text-align: center; color: red;">Internal Purposes Only</mat-card-subtitle>
         <br>
+        <mat-card-content style="font-size: smaller;">
+            <p>{{message}} <a *ngIf="link !== undefined" [href]="link"> Click Here</a></p>
+        </mat-card-content>
         <form [formGroup]="loginForm" (submit)="submit()">
         <mat-card-content fxLayout="column">
             <mat-form-field>

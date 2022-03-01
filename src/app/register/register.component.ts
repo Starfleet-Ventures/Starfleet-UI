@@ -10,13 +10,15 @@ import { Router } from '@angular/router';
   providers: [AppService]
 })
 export class RegisterComponent implements OnInit {
+  message: string;
+  link: string;
   registerForm = new FormGroup({
     username: new FormControl('', Validators.required),
     email:  new FormControl('', [Validators.required,Validators.email]),
     password: new FormControl('',Validators.required),  
   });
   constructor(private appService: AppService,private _router: Router) { }
-
+ 
   ngOnInit(): void {
   }
   private _createFormData(): FormData{
@@ -46,8 +48,17 @@ export class RegisterComponent implements OnInit {
       }
 
     },(fail)=>{
-      console.log("Failure");
-      console.log(fail.message);
+      console.log(fail);
+      switch(fail.error.target){
+        case 'user_already_exists':
+          this.message = "Seems Like User already exists, Please Login";
+          this.link = "http://13.127.219.224:3003/login";
+          break;
+        case 'not_internal':
+          this.message = "Register functionality is only available for internal organisation purposes only. For a Demo, Please fill the demo request form"
+          this.link = "http://13.127.219.224:3003/#contact-us";
+          break;
+      }
     })
   }
 }

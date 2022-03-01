@@ -57,14 +57,16 @@ const isAuth = (req,res,next) =>{
 
 
 app.use(express.static(filePath));
+
 app.get('/map',isAuth,(req,res)=>{
   res.sendFile(path.join(__dirname,'..','dist','starfleet','index.html'));
 })
 app.post("/register",upload.none(),async (req,res)=>{
   const {username,email,password}=req.body;
+  if(/@yactraq./.test(email) || /@starfleet./.test(email)){
   let user = await UserModel.findOne({username});
   if (user){
-      return res.status(401).json({message: "User Already Exists",target: undefined});
+      return res.status(401).json({message: "User Already Exists",target: 'user_already_exists'});
   }
   const hashedPass = await bcrypt.hash(password,12);
   user = new UserModel({
@@ -74,6 +76,9 @@ app.post("/register",upload.none(),async (req,res)=>{
   });
   await user.save();
   res.status(200).json({message: "Registration Successful",target: "/login"})
+}else{
+  return res.status(401).json({message: "This is for internal purposes only",target: 'not_internal'})
+}
 })
 
 app.post("/login",upload.none(), async (req,res)=>{
@@ -82,13 +87,13 @@ app.post("/login",upload.none(), async (req,res)=>{
   const user = await UserModel.findOne({username});
 
   if(!user){
-      return res.status(401).json({message: 'User Does not Exist',target: undefined})
+      return res.status(401).json({message: 'User Does not Exist',target: 'no_user_exists'})
   }
 
   const isMatch = await bcrypt.compare(password,user.password);
 
   if(!isMatch){
-      return res.status(401).json({message: 'Wrong Password',target: undefined})
+      return res.status(401).json({message: 'Wrong Password',target: 'wrong_password'})
   }
   req.session.isAuth = true;
   res.status(200).json({message: 'Success',target: '/map'})

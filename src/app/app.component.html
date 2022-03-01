@@ -2,7 +2,7 @@
 <app-header></app-header>
 
 <router-outlet></router-outlet>
-<mat-grid-list *ngIf="router.url === '/'" cols="1" rows="4" rowHeight="45rem" gutterSize="0px">
+<mat-grid-list *ngIf="router.url != '/login' && router.url != '/register' && router.url !='/map'" cols="1" rows="4" rowHeight="45rem" gutterSize="0px">
   <mat-grid-tile id="home" class="home">
     <app-home fxLayout.gt-sm="row" fxLayout.lt-sm="column" fxLayoutAlign.lt-sm="center center" fxLayoutAlign.gt-sm="space-around center" fxFlexFill></app-home>
   </mat-grid-tile>

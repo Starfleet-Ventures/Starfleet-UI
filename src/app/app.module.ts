@@ -23,6 +23,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { HttpClientModule } from "@angular/common/http";
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+import {NgxTypedJsModule} from 'ngx-typed-js';
 
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
@@ -64,7 +65,8 @@ import { MapComponent } from './map/map.component';
     MatMenuModule,
     ReactiveFormsModule,
     MatSelectModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    NgxTypedJsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

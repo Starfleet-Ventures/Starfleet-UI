@@ -1,9 +1,9 @@
 {
     "development": {
-        "host": "127.0.0.1",
+        "host": "localhost",
         "username": "ishan",
         "password": "omnitraq",
         "db": "StarfleetTesting",
-        "port": "4200"
+        "port": "8000"
       }
 }

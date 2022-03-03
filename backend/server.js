@@ -31,7 +31,8 @@ mongoose.connect(MONGO_URI,{
 })
 .then(()=>{
   console.log("Connected to Database");
-}).catch(()=>{
+}).catch((err)=>{
+  console.error(err);
   console.error("Could not Connect to Database");
 });
 const store = MongoDBSession({

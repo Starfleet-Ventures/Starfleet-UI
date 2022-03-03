@@ -4,6 +4,6 @@
         "username": "ishan",
         "password": "omnitraq",
         "db": "StarfleetTesting",
-        "port": "3003"
+        "port": "4200"
       }
 }

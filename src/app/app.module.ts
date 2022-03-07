@@ -32,6 +32,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { MapComponent } from './map/map.component';
+import { MapPopupComponent } from './map-popup/map-popup.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { MapComponent } from './map/map.component';
     RegistrationComponent,
     LoginComponent,
     RegisterComponent,
-    MapComponent
+    MapComponent,
+    MapPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +71,7 @@ import { MapComponent } from './map/map.component';
     NgxTypedJsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [MapPopupComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { ComponentFactoryResolver, Injectable, Injector } from '@angular/core';
+import { MapPopupComponent } from './map-popup/map-popup.component';
 
 
 
@@ -7,6 +8,27 @@ import { Injectable } from '@angular/core';
 })
 export class PopUpService {
   // component: ComponentFactory<MarkerComponent>
+  
+  constructor(private componentFactoryResolver: ComponentFactoryResolver,
+    private injector: Injector){}
+  
+  createCustomPopup(img: string) { 
+      const factory = this.componentFactoryResolver.resolveComponentFactory(MapPopupComponent);
+      const component = factory.create(this.injector);
+  
+      //Set the component inputs manually 
+      component.instance.imgUrl = img;
+      // component.instance.someinput2 = "example";
+  
+      // //Subscribe to the components outputs manually (if any)        
+      // component.instance.someoutput.subscribe(() => console.log("output handler fired"));
+  
+      // //Manually invoke change detection, automatic wont work, but this is Ok if the component doesn't change
+      component.changeDetectorRef.detectChanges();
+  
+      return component.location.nativeElement;
+  }
+  
   makeCapitalPopup(data: any): string { 
     // let compRef = this.component.create(this.injector);
     // compRef.instance.src="https://media.istockphoto.com/photos/sunrise-at-the-farmhouse-picture-id1284634579?b=1&k=20&m=1284634579&s=170667a&w=0&h=SfgSMsk34KM-ymnXrAsNWfXCuWrj5Q6DOsYMLM146yY=";

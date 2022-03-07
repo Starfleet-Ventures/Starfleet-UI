@@ -16,7 +16,9 @@ export class MarkerService {
         const lon = c.geometry.coordinates[0];
         const lat = c.geometry.coordinates[1];
         const marker = L.marker([lat, lon]);
-        marker.bindPopup(this.popupService.makeCapitalPopup(c.properties));
+        const image = c.properties.img;
+        // marker.bindPopup(this.popupService.makeCapitalPopup(c.properties));
+        marker.bindPopup(() => this.popupService.createCustomPopup(image)).openPopup();
         marker.addTo(map);
       }
     });

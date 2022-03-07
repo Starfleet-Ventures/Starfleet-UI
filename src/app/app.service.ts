@@ -16,7 +16,9 @@ export class AppService{
         //API CALL
         return this.httpClient.post<{message: String}>(this.SERVER_URL+'/form/postDemoForm', data);
     }
-
+    detectBuildings(image: string){
+        return this.httpClient.post<{imageUrl: String}>(this.SERVER_URL+'/api/detect-buildings',{imageName: image});
+    }
     postRegistrationFormData(data: FormData){
         //API CALL
         return this.httpClient.post<{message: string, target: string}>(this.SERVER_URL+'/auth/register', data);

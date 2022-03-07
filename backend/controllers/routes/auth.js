@@ -40,6 +40,7 @@ router.post("/login",upload.none(), async (req,res)=>{
         return res.status(401).json({message: 'Wrong Password',target: 'wrong_password'})
     }
     req.session.isAuth = true;
+    req.session.userId = user.username;
     res.status(200).json({message: 'Success',target: '/map'})
   });
   

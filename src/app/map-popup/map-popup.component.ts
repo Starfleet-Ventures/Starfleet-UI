@@ -1,21 +1,26 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-map-popup',
   templateUrl: './map-popup.component.html',
-  styleUrls: ['./map-popup.component.css']
+  styleUrls: ['./map-popup.component.css'],
+  providers: [AppService]
 })
 export class MapPopupComponent implements OnInit {
   @Input() imgUrl;
-  constructor() { }
+  constructor(private appService: AppService) { }
 
   ngOnInit(): void {
   }
   submit(): void {
-    const rawpath = this.imgUrl.split('/');
-    const name = rawpath[rawpath.length-1].split('.')[0];
-    // console.log(name);
-    const file = new File([name],this.imgUrl,{type:'image/jpg'});
-    console.log(file);
+   const imgUrlPar = this.imgUrl.split('/');
+   const image = imgUrlPar[imgUrlPar.length -1];  
+   this.appService.detectBuildings(image).subscribe(success =>{
+      console.log(success.imageUrl);
+    },failure=>{
+      console.log("failure");
+      console.log(failure.imageUrl);
+    })
   }
 }

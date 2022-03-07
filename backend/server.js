@@ -18,7 +18,7 @@ const config = require('./config/database');
 
 const formRouter = require('./controllers/routes/form');
 const authRouter = require('./controllers/routes/auth');
-
+const modelsRouter =  require('./controllers/routes/models');
 const filePath = path.join(__dirname, '..','dist','starfleet');
 
 const dev = config.development;
@@ -62,11 +62,9 @@ const isAuth = (req,res,next) =>{
 
 app.use(express.static(filePath));
 app.use('/map',express.static(path.join(__dirname,'map')));
-// app.post()
-
 
 app.use('/auth',authRouter);
-
+app.use('/api',modelsRouter);
 app.use('/form',formRouter);
 
 app.get('*',(req,res)=>{

@@ -11,5 +11,11 @@ export class MapPopupComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  submit(): void {
+    const rawpath = this.imgUrl.split('/');
+    const name = rawpath[rawpath.length-1].split('.')[0];
+    // console.log(name);
+    const file = new File([name],this.imgUrl,{type:'image/jpg'});
+    console.log(file);
+  }
 }

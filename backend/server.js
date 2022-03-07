@@ -61,8 +61,8 @@ const isAuth = (req,res,next) =>{
 
 
 app.use(express.static(filePath));
-
-
+app.use('/map',express.static(path.join(__dirname,'map')));
+// app.post()
 
 
 app.use('/auth',authRouter);

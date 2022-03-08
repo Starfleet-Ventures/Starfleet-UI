@@ -47,11 +47,10 @@ const processBuildingImage = async (user,imageName) =>{
     form.append('username',user);
     form.append('filename',imageName);
     form.append('image', fs.createReadStream(path.join(__dirname,'..','..','map','raw',imageName)),imageName);
-    console.log(form);
+    
     // const form ={'image': fs.createReadStream(path.join(__dirname,'..','..','map','raw',imageName))}
     const part2 = await postRawBuildingImage(form);
     if(part2.status === 200){
-        console.log(part2);
         try {
             fs.writeFileSync(path.join(__dirname,'..','..','map','output',user,imageName), Buffer.from(part2.data));
             return true;
@@ -62,7 +61,6 @@ const processBuildingImage = async (user,imageName) =>{
           }
     }
     else{
-        console.log(part2.status);
         console.log("Something went Wrong");
         return false;
     }

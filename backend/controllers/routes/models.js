@@ -6,8 +6,6 @@ const express = require('express'),
     path = require('path');
 
 router.get('/getProcessedImages',(req,res)=>{
-  console.log(req.protocol);
-  console.log(req.get('host'));
   const user = req.session.userId;
   const outputImgPath = path.join(__dirname,'..','..','map','output',user,req.query.image);
   try{

@@ -61,7 +61,10 @@ const isAuth = (req,res,next) =>{
 
 
 app.use(express.static(filePath));
-app.use('/map',express.static(path.join(__dirname,'map')));
+app.get('/map',isAuth,(req,res)=>{
+  res.sendFile(path.join(__dirname,'..','dist','starfleet','index.html'));
+})
+app.use('/map',isAuth,express.static(path.join(__dirname,'map')));
 
 app.use('/auth',authRouter);
 app.use('/api',modelsRouter);

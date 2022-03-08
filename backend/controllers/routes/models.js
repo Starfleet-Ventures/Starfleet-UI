@@ -37,7 +37,7 @@ router.post('/detect-buildings',async (req,res,next)=>{
         console.log(e);
         flag = false;
       }
-    flag === true?res.status(200).json({processedImageUrl: `http://13.127.219.224:3003/map/output/${user}/${imageName}`}):res.status(501).json({message: 'Work In Progress'});
+    flag === true?res.status(200).json({processedImageUrl: `http://13.127.219.224:3003/map/output/${user}/${imageName}`}):res.status(500).json({error: 'Work In Progress'});
 })
 
 module.exports = router;

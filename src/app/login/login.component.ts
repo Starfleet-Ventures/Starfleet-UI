@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
       switch(fail.error.target){
         case 'no_user_exists':
           this.message = "No User Exists for the provided username and password combination. Please Register";
-          this.link = "http://13.127.219.224:3003/register";
+          this.link = "http://34.139.101.136:8000/register";
           break;
         case 'wrong_password':
           this.message = "Entered Password is Incorrect";

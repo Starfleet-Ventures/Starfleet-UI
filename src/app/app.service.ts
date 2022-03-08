@@ -6,7 +6,7 @@ import { CountriesInfo } from './model/countries.model';
   })
 export class AppService{
     constructor(private httpClient: HttpClient) { }
-    private SERVER_URL = 'http://13.127.219.224:3003';
+    private SERVER_URL = 'http://34.139.101.136:8000';
     
     getCountriesInfo(){
         return this.httpClient.get<{response: CountriesInfo[]}>(this.SERVER_URL+'/form/getCountriesInfo');

@@ -40,8 +40,8 @@ export class LoginComponent implements OnInit {
     this.appService.postLoginFormData(formData).subscribe((success)=>{
       console.log(success);
       switch (success.target){
-        case '/map':
-          this._router.navigate(['map']);
+        case '/map-ui':
+          this._router.navigate(['map-ui']);
           break;
       }
     },(fail)=>{

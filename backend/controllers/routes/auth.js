@@ -41,7 +41,7 @@ router.post("/login",upload.none(), async (req,res)=>{
     }
     req.session.isAuth = true;
     req.session.userId = user.username;
-    res.status(200).json({message: 'Success',target: '/map'})
+    res.status(200).json({message: 'Success',target: '/map-ui'})
   });
   
 router.get("/logout",(req,res)=>{

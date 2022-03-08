@@ -1,4 +1,5 @@
-import { ComponentFactoryResolver, Injectable, Injector } from '@angular/core';
+import { ApplicationRef, ComponentFactoryResolver, ComponentRef, Inject, Injectable, Injector } from '@angular/core';
+import { AppService } from './app.service';
 import { MapPopupComponent } from './map-popup/map-popup.component';
 
 
@@ -8,25 +9,44 @@ import { MapPopupComponent } from './map-popup/map-popup.component';
 })
 export class PopUpService {
   // component: ComponentFactory<MarkerComponent>
-  
+  component: ComponentRef<MapPopupComponent>;
   constructor(private componentFactoryResolver: ComponentFactoryResolver,
-    private injector: Injector){}
+    private injector: Injector,private appRef: ApplicationRef,@Inject(AppService) private appService: AppService){}
   
-  createCustomPopup(img: string) { 
+  createCustomPopup(img: string,processedImageUrl: string) { 
+    if(this.component) this.component.destroy();
       const factory = this.componentFactoryResolver.resolveComponentFactory(MapPopupComponent);
-      const component = factory.create(this.injector);
+      this.component = factory.create(this.injector);
   
       //Set the component inputs manually 
-      component.instance.imgUrl = img;
+      this.component.instance.imageUrl = img;
       // component.instance.someinput2 = "example";
-  
+      this.component.instance.processedImageUrl = processedImageUrl !== undefined?processedImageUrl:undefined;
+    
       // //Subscribe to the components outputs manually (if any)        
-      // component.instance.someoutput.subscribe(() => console.log("output handler fired"));
+      this.component.instance.formSubmit.subscribe((image: string) => {
+         this.component.instance.spinner = true;
+        this.appService.detectBuildings(image).subscribe(success =>{
+            console.log("Here");
+            this.component.instance.processedImageUrl = success.processedImageUrl;
+            this.component.instance.spinner = false;
+          },failure=>{
+            this.component.instance.failure = true;
+            this.component.instance.spinner = false;
+            console.log("failure");
+            console.log(failure.imageUrl);
+          })
+      });
   
       // //Manually invoke change detection, automatic wont work, but this is Ok if the component doesn't change
-      component.changeDetectorRef.detectChanges();
+      this.appRef.attachView(this.component.hostView);
+      this.component.onDestroy(() => {
+        this.appRef.detachView(this.component.hostView);
+        this.component.instance.formSubmit.unsubscribe();
+      });
+      this.component.changeDetectorRef.detectChanges();
   
-      return component.location.nativeElement;
+      return this.component.location.nativeElement;
   }
   
   makeCapitalPopup(data: any): string { 

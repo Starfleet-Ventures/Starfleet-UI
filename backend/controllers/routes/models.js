@@ -4,7 +4,27 @@ const express = require('express'),
     router = express.Router();
     fs = require("fs")
     path = require('path');
-router.post('/detect-buildings',async (req,res,next)=>{
+
+router.get('/getProcessedImages',(req,res)=>{
+  console.log(req.protocol);
+  console.log(req.get('host'));
+  const user = req.session.userId;
+  const outputImgPath = path.join(__dirname,'..','..','map','output',user,req.query.image);
+  try{
+    if(fs.existsSync(outputImgPath)){
+      res.status(200).json({processedUrl: `${req.protocol}://${req.get('host')}/map/output/${user}/${req.query.image}`})
+    }else{
+      res.status(200).json({})
+    }
+  }
+  catch(e){
+    console.error(e);
+    res.status(501).json({error: 'Not Implemented'});
+  }
+ 
+})
+
+router.post('/detect-buildings',async (req,res)=>{
     const user = req.session.userId;
     const userPath = path.join(__dirname,'..','..','map','output',user);
     const imageName = req.body.imageName;

@@ -1,7 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpParams } from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import { CountriesInfo } from './model/countries.model';
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+  })
 export class AppService{
     constructor(private httpClient: HttpClient) { }
     private SERVER_URL = 'http://13.127.219.224:3003';
@@ -17,7 +19,11 @@ export class AppService{
         return this.httpClient.post<{message: String}>(this.SERVER_URL+'/form/postDemoForm', data);
     }
     detectBuildings(image: string){
-        return this.httpClient.post<{imageUrl: String}>(this.SERVER_URL+'/api/detect-buildings',{imageName: image});
+        return this.httpClient.post<{processedImageUrl: string}>(this.SERVER_URL+'/api/detect-buildings',{imageName: image});
+    }
+    getProcessedImages(image: string){
+        let params = new HttpParams().set('image',image);
+        return this.httpClient.get<{processedUrl: string}>(this.SERVER_URL+'/api/getProcessedImages',{params: params});
     }
     postRegistrationFormData(data: FormData){
         //API CALL

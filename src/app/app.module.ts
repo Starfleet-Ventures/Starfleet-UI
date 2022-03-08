@@ -21,6 +21,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HttpClientModule } from "@angular/common/http";
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import {NgxTypedJsModule} from 'ngx-typed-js';
@@ -68,7 +69,8 @@ import { MapPopupComponent } from './map-popup/map-popup.component';
     ReactiveFormsModule,
     MatSelectModule,
     MatAutocompleteModule,
-    NgxTypedJsModule
+    NgxTypedJsModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -8,7 +8,6 @@ import { AppService } from './app.service';
 })
 export class MarkerService {
   capitals: string = '/assets/data/usa-capitals.geojson';
-
   constructor(private http: HttpClient,@Inject(PopUpService) private popupService: PopUpService,@Inject(AppService) private appService: AppService) { }
 
   makeCapitalMarkers(map: L.map): void { 
@@ -21,11 +20,13 @@ export class MarkerService {
         const image = c.properties.img;
         let imgArray = image.split('/');
         let processedImageUrl = undefined;
-        this.appService.getProcessedImages(imgArray[imgArray.length-1]).subscribe(success=>{
-        if(success.processedUrl !== undefined){
-          processedImageUrl = success.processedUrl;
-        }},
-        failure=>console.error(failure));
+        marker.on('click',(e)=>{
+          var request = new XMLHttpRequest();
+          request.open('GET', "http://13.127.219.224:3003/api/getProcessedImages?image="+imgArray[imgArray.length-1], false);  
+          request.send(null);
+          const response = JSON.parse(request.responseText); 
+          processedImageUrl = response.processedUrl;
+        });
         // marker.bindPopup(this.popupService.makeCapitalPopup(c.properties));
         marker.bindPopup(() => this.popupService.createCustomPopup(image,processedImageUrl)).openPopup();
         marker.addTo(map);

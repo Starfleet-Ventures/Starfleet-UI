@@ -18,12 +18,15 @@ export class AppService{
         //API CALL
         return this.httpClient.post<{message: String}>(this.SERVER_URL+'/form/postDemoForm', data);
     }
-    detectBuildings(image: string){
-        return this.httpClient.post<{processedImageUrl: string}>(this.SERVER_URL+'/api/detect-buildings',{imageName: image});
+    detectBuildings(image: string,type: string){
+        let data = {imageName: image, modelType: type};
+        
+        return this.httpClient.post<{processedImageUrl: string}>(this.SERVER_URL+'/api/detect',data);
     }
-    getProcessedImages(image: string){
+    getProcessedImages(image: string, type: string){
         let params = new HttpParams().set('image',image);
-        return this.httpClient.get<{processedUrl: string}>(this.SERVER_URL+'/api/getProcessedImages',{params: params});
+        params.set('modelType',type);
+        return this.httpClient.get<{processed: string}>(this.SERVER_URL+'/api/getProcessedImages',{params: params});
     }
     postRegistrationFormData(data: FormData){
         //API CALL

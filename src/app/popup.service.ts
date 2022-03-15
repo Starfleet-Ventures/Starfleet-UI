@@ -13,7 +13,7 @@ export class PopUpService {
   constructor(private componentFactoryResolver: ComponentFactoryResolver,
     private injector: Injector,private appRef: ApplicationRef,@Inject(AppService) private appService: AppService){}
   
-  createCustomPopup(img: string,processedImageUrl: string) { 
+  createCustomPopup(img: string,processedImages: string[]) { 
     if(this.component) this.component.destroy();
       const factory = this.componentFactoryResolver.resolveComponentFactory(MapPopupComponent);
       this.component = factory.create(this.injector);
@@ -21,14 +21,16 @@ export class PopUpService {
       //Set the component inputs manually 
       this.component.instance.imageUrl = img;
       // component.instance.someinput2 = "example";
-      this.component.instance.processedImageUrl = processedImageUrl !== undefined?processedImageUrl:undefined;
-    
+      this.component.instance.processedImages = processedImages;
+      this.component.instance.flex = processedImages.length === 2 ?"33.33%":processedImages.length === 1 ?"50%": undefined;
       // //Subscribe to the components outputs manually (if any)        
-      this.component.instance.formSubmit.subscribe((image: string) => {
+      this.component.instance.formSubmit.subscribe((event) => {
          this.component.instance.spinner = true;
-        this.appService.detectBuildings(image).subscribe(success =>{
+        this.appService.detectBuildings(event.image,event.type).subscribe(success =>{
             console.log("Here");
-            this.component.instance.processedImageUrl = success.processedImageUrl;
+            processedImages.push(success.processedImageUrl);
+            this.component.instance.processedImages = processedImages;
+            this.component.instance.flex = processedImages.length === 2 ?"33.33%":processedImages.length === 1 ?"50%": undefined;
             this.component.instance.spinner = false;
           },failure=>{
             this.component.instance.failure = true;

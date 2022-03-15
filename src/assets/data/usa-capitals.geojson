@@ -130,6 +130,84 @@
         "properties": {
           "img": "http://13.127.219.224:3003/map/raw/image-10.jpg"
         }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -101.929978,
+            36.525452
+          ]
+        },
+        "properties": {
+          "img": "http://13.127.219.224:3003/map/raw/image-11.jpg"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -101.668495,
+            42.421764
+          ]
+        },
+        "properties": {
+          "img": "http://13.127.219.224:3003/map/raw/image-12.jpg"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -113.401893,
+            48.369324
+          ]
+        },
+        "properties": {
+          "img": "http://13.127.219.224:3003/map/raw/image-13.jpg"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -113.020683,
+            39.333905
+          ]
+        },
+        "properties": {
+          "img": "http://13.127.219.224:3003/map/raw/image-14.jpg"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -88.235527,
+            45.057643
+          ]
+        },
+        "properties": {
+          "img": "http://13.127.219.224:3003/map/raw/image-15.jpg"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -101.023613,
+            30.713068
+          ]
+        },
+        "properties": {
+          "img": "http://13.127.219.224:3003/map/raw/image-16.jpg"
+        }
       }
     ]
   }

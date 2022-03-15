@@ -1,14 +1,28 @@
-<div fxLayout="column">
+<div fxLayout="column" fxLayouGap="5px">
     <mat-spinner [diameter]="40" fxFlexAlign="center" *ngIf="spinner === true"></mat-spinner>
     
-<form fxFlexFill (submit)="submit()" *ngIf="spinner !== true || failure !== false">
-    <div *ngIf="processedImageUrl !== undefined"fxLayout="row" fxLayoutGap="5px">
-        <img fxFlex="50%" id="img" [src]="imageUrl" >
-        <img fxFlex="50%" id="img" [src]="processedImageUrl" >
+<form *ngIf="spinner !== true || failure !== false">
+    <div *ngIf="processedImages.length === 0" style="text-align: center;">
+        <img fxFlexFill id="img" [src]="imageUrl" >  
+        <button type="button" mat-button id="btn-alert" [matMenuTriggerFor]="detectMenu"> Detect </button>
+        <mat-menu #detectMenu="matMenu">
+            <button type="submit" mat-menu-item (click)="submit('building')">Detect Building</button>
+            <button type="submit" mat-menu-item (click)="submit('vehicle')">Detect Vehicle</button>
+          </mat-menu>
+        
     </div>
-    <div *ngIf="processedImageUrl === undefined" id="overlay-1" style="text-align: center;">
-        <img fxFlexFill id="img" [src]="imageUrl" >
-        <button id="btn-alert"> Submit </button>
+    <div fxFlexFill *ngIf="processedImages.length > 0"fxLayout="row" fxLayoutGap="5px">
+        <img  [fxFlex]="flex" id="img" [src]="imageUrl" >
+        <img [fxFlex]="flex" id="img" [src]="processedImageUrl" *ngFor="let processedImageUrl of processedImages" >
+    </div>
+    
+    <div style="text-align: center;" *ngIf="processedImages.length === 1">
+        <button style="margin-top: 5px;" type="button" mat-button id="btn-alert" [matMenuTriggerFor]="detectMenu"> Detect </button>
+        <mat-menu #detectMenu="matMenu">
+            <button *ngIf="buttonActive() === 'vehicle'" type="submit" mat-menu-item (click)="submit('building')">Detect Building</button>
+            <button *ngIf="buttonActive() === 'building'" type="submit" mat-menu-item (click)="submit('vehicle')">Detect Vehicle</button>
+        </mat-menu>
+
     </div>
     
     </form>

@@ -4,19 +4,20 @@ const fs = require('fs');
 const path = require('path');
 
 
-const getProcessedBuildingImage = async (user,imageName) => {
+const getProcessedImage = async (user,imageName,modelType) => {
 
  return await axios.get('/getResult',{
     responseType: 'arraybuffer',
     responseEncoding: 'utf8', 
     params: {
          username: user,
-         filename: imageName
+         filename: imageName,
+         modelType: modelType
      }
  }).then(response =>response).catch((err)=>err.response);
  
 }
-const postRawBuildingImage = async (formData) => {
+const postRawImage = async (formData) => {
  
     return await axios.post('/objectClassifier',formData,{
         responseType: 'arraybuffer',
@@ -29,12 +30,12 @@ const postRawBuildingImage = async (formData) => {
     
    }
    
-const processBuildingImage = async (user,imageName) =>{
-    const part1 = await getProcessedBuildingImage(user,imageName);
+const processImage = async (user,imageName,modelType) =>{
+    const part1 = await getProcessedImage(user,imageName,modelType);
     if(part1.status === 200){
         console.log(part1.data);
         try {
-            fs.writeFileSync(path.join(__dirname,'..','..','map','output',user,imageName), Buffer.from(part1.data));
+            fs.writeFileSync(path.join(__dirname,'..','..','map','output',user,`${modelType}_${imageName}`), Buffer.from(part1.data));
             return true;
             //file written successfully
           } catch (err) {
@@ -47,12 +48,12 @@ const processBuildingImage = async (user,imageName) =>{
     form.append('username',user);
     form.append('filename',imageName);
     form.append('image', fs.createReadStream(path.join(__dirname,'..','..','map','raw',imageName)),imageName);
-    
+    form.append('modelType',modelType)
     // const form ={'image': fs.createReadStream(path.join(__dirname,'..','..','map','raw',imageName))}
-    const part2 = await postRawBuildingImage(form);
+    const part2 = await postRawImage(form);
     if(part2.status === 200){
         try {
-            fs.writeFileSync(path.join(__dirname,'..','..','map','output',user,imageName), Buffer.from(part2.data));
+            fs.writeFileSync(path.join(__dirname,'..','..','map','output',user,`${modelType}_${imageName}`), Buffer.from(part2.data));
             return true;
             //file written successfully
           } catch (err) {
@@ -67,4 +68,4 @@ const processBuildingImage = async (user,imageName) =>{
     }
 }
 
-module.exports = processBuildingImage;
+module.exports = processImage;

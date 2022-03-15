@@ -141,7 +141,7 @@
           ]
         },
         "properties": {
-          "img": "http://13.127.219.224:3003/map/raw/image-11.jpg"
+          "img": "http://34.139.101.136:8000/map/raw/image-11.jpg"
         }
       },
       {
@@ -154,7 +154,7 @@
           ]
         },
         "properties": {
-          "img": "http://13.127.219.224:3003/map/raw/image-12.jpg"
+          "img": "http://34.139.101.136:8000/map/raw/image-12.jpg"
         }
       },
       {
@@ -167,7 +167,7 @@
           ]
         },
         "properties": {
-          "img": "http://13.127.219.224:3003/map/raw/image-13.jpg"
+          "img": "http://34.139.101.136:8000/map/raw/image-13.jpg"
         }
       },
       {
@@ -180,7 +180,7 @@
           ]
         },
         "properties": {
-          "img": "http://13.127.219.224:3003/map/raw/image-14.jpg"
+          "img": "http://34.139.101.136:8000/map/raw/image-14.jpg"
         }
       },
       {
@@ -193,7 +193,7 @@
           ]
         },
         "properties": {
-          "img": "http://13.127.219.224:3003/map/raw/image-15.jpg"
+          "img": "http://34.139.101.136:8000/map/raw/image-15.jpg"
         }
       },
       {
@@ -206,7 +206,7 @@
           ]
         },
         "properties": {
-          "img": "http://13.127.219.224:3003/map/raw/image-16.jpg"
+          "img": "http://34.139.101.136:8000/map/raw/image-16.jpg"
         }
       }
     ]

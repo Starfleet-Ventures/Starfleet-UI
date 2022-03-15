@@ -10,20 +10,28 @@ import { AppService } from '../app.service';
 })
 export class MapPopupComponent implements OnInit {
   @Input() imageUrl;
-  @Output() formSubmit = new EventEmitter<string>();
-  @Input() processedImageUrl: string;
+  @Output() formSubmit = new EventEmitter<{image: string,type: string}>();
+  @Input() processedImages: string[];
   @Input() spinner: boolean = false;
   @Input() failure: boolean = false;
+  @Input() flex: string;
   constructor(private appService: AppService) { }
 
   ngOnInit(): void {
    console.log(this.imageUrl);
-   console.log(this.processedImageUrl); 
+   console.log(this.processedImages); 
   }
-  submit(): void {
+  
+  buttonActive(): string {
+    let partial = this.processedImages[0].split('/');
+    let name = partial[partial.length-1];
+    let type = name.split('_')[0];
+    return type;
+  }
+  submit(type: string): void {
    const imgUrlPar = this.imageUrl.split('/');
    const image = imgUrlPar[imgUrlPar.length -1];  
-   this.formSubmit.emit(image);
+   this.formSubmit.emit({image,type});
   //  this.spinner = true;
   //  this.appService.detectBuildings(image).subscribe(success =>{
   //     console.log("Here");

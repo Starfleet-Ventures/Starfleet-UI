@@ -1,4 +1,4 @@
-const processBuildingImage = require('../lib/modelApi');
+const processImage = require('../lib/modelApi');
 
 const express = require('express'),
     router = express.Router();
@@ -7,36 +7,42 @@ const express = require('express'),
 
 router.get('/getProcessedImages',(req,res)=>{
   const user = req.session.userId;
-  const outputImgPath = path.join(__dirname,'..','..','map','output',user,req.query.image);
+  const outputImgPath = path.join(__dirname,'..','..','map','output',user);
+  let files = [];
   try{
-    if(fs.existsSync(outputImgPath)){
-      res.status(200).json({processedUrl: `${req.protocol}://${req.get('host')}/map/output/${user}/${req.query.image}`})
-    }else{
-      res.status(200).json({})
-    }
+    
+    fs.readdirSync(outputImgPath).forEach(file => {
+      if(file.includes(req.query.image)){
+        files.push(`${req.protocol}://${req.get('host')}/map/output/${user}/${file}`)
+      }
+    });
+    res.status(200).json({processed: files}); 
   }
   catch(e){
     console.error(e);
-    res.status(501).json({error: 'Not Implemented'});
+    res.status(200).json({processed: files});
   }
  
 })
 
-router.post('/detect-buildings',async (req,res)=>{
+router.post('/detect',async (req,res)=>{
     const user = req.session.userId;
     const userPath = path.join(__dirname,'..','..','map','output',user);
+    console.log(req.body);
     const imageName = req.body.imageName;
+    const modelType = req.body.modelType;
     let flag;
     try {
         if (fs.existsSync(userPath)) {
-          const imagePath = path.join(userPath,imageName);
+          const imagePath = path.join(userPath,`${modelType}_${imageName}`);
+          console.log(imagePath);
           try{
               if (fs.existsSync(imagePath)){
                 flag = true;
               }
               else {
                     // api get post
-                flag = await processBuildingImage(user,imageName);
+                flag = await processImage(user,imageName,modelType);
             }
           }
           catch(e) {
@@ -49,13 +55,13 @@ router.post('/detect-buildings',async (req,res)=>{
         } else {
           // create folder and then
           fs.mkdirSync(path.join(__dirname,'..','..','map','output',user));
-          flag = await processBuildingImage(user,imageName);
+          flag = await processImage(user,imageName,modelType);
         }
       } catch(e) {
         console.log(e);
         flag = false;
       }
-    flag === true?res.status(200).json({processedImageUrl: `${req.protocol}://${req.get('host')}/map/output/${user}/${imageName}`}):res.status(500).json({error: 'Work In Progress'});
+    flag === true?res.status(200).json({processedImageUrl: `${req.protocol}://${req.get('host')}/map/output/${user}/${modelType}_${imageName}`}):res.status(500).json({error: 'Work In Progress'});
 })
 
 module.exports = router;

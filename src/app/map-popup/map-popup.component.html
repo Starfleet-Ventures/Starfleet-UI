@@ -12,8 +12,8 @@
         
     </div>
     <div fxFlexFill *ngIf="processedImages.length > 0"fxLayout="row" fxLayoutGap="5px">
-        <img  [fxFlex]="flex" id="img" [src]="imageUrl" >
-        <img [fxFlex]="flex" id="img" [src]="processedImageUrl" *ngFor="let processedImageUrl of processedImages" >
+        <img  [fxFlex]="flex" id="img-res" [src]="imageUrl" >
+        <img [fxFlex]="flex" id="img-res" [src]="processedImageUrl" *ngFor="let processedImageUrl of processedImages" >
     </div>
     
     <div style="text-align: center;" *ngIf="processedImages.length === 1">

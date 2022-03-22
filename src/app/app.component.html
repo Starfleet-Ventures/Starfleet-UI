@@ -7,14 +7,14 @@
     <app-home fxLayout="row" fxLayoutAlign="center center" fxFlexFill></app-home>
   </mat-grid-tile>
   <mat-grid-tile id="about" class="about">
-    <app-about fxLayout="column" fxLayoutAlign="space-between center"></app-about>
+    <app-about fxLayout="row" fxLayoutAlign="center center" fxFlexFill></app-about>
   </mat-grid-tile>
 
   <mat-grid-tile id="testimonials" class="testimonials">
     <app-testimonial fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap.xs="15%"></app-testimonial>
   </mat-grid-tile>
   <mat-grid-tile id="contact-us" class="registration">
-    <app-registration id="registration"></app-registration>
+    <app-registration id="registration" fxLayout="row" fxLayoutAlign="space-around center" fxFlexFill></app-registration>
   </mat-grid-tile>
 </mat-grid-list>
 <app-footer class="footer"></app-footer>

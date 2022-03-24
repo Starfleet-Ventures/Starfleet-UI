@@ -1,0 +1,26 @@
+<!-- <p> feature works !!</p> -->
+<ngb-carousel
+  #carousel
+  [interval]="6000"
+  [pauseOnHover]="pauseOnHover"
+  [pauseOnFocus]="pauseOnFocus"
+  (slide)="onSlide($event)"
+>
+  <ng-template ngbSlide *ngFor="let img of images; index as i">
+    <!-- <a href="https://www.google.fr/?q=Number+{{i+1}}" target="_blank" rel="nofollow noopener noreferrer"> -->
+      <!-- <p *ngFor="let img of images; index as i">{{img}}</p> -->
+    <div class="picsum-img-wrapper fill" >
+      
+      <img [src]="img.image" alt="My image {{i + 1}} description"/>
+      <!-- <div class="bottom-left">Bottom Left</div>
+      <div class="top-left">Top Left</div>
+      <div class="top-right">Top Right</div>
+      <div class="bottom-right">Bottom Right</div> -->
+      <div class="centered">
+        <h1 [ngStyle.gt-md]="{'font-size': '40px'}" [ngStyle.lt-md]="{'font-size': '25px'}">{{img.heading}}</h1>
+        <i style="white-space: nowrap;"[ngStyle.gt-md]="{'font-size': '15px'}" [ngStyle.lt-md]="{'font-size': '7.5px'}">{{img.subheading}}</i>
+      </div>
+    </div>
+    <!-- </a> -->
+  </ng-template>
+</ngb-carousel>

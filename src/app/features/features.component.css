@@ -1,0 +1,52 @@
+ngb-carousel .picsum-img-wrapper {
+        position: relative;
+        height: 0;
+        padding-top: 55%; /* Keep ratio for 900x500 images */
+      }
+
+ngb-carousel .picsum-img-wrapper > img {
+  position: absolute;
+  background:rgba(0,0,0,1);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.fill {
+  /* filter: brightness(30%); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
+  color: white;
+}
+.fill img {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+::ng-deep .carousel-control-next:hover,
+::ng-deep .carousel-control-prev:hover {
+  background: rgba(210, 212, 223, 0.4);
+}
+.fill::before {
+  content: ' ';
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #00000093;
+}
+
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  z-index: 2;
+}

@@ -36,6 +36,15 @@ export class HeaderComponent implements OnInit {
       
     },
     {
+      label: 'Features',
+      href: '#features',
+      showOnMobile: false,
+      showOnTablet: true,
+      showOnDesktop: true,
+      onlyOnMenu: false
+      
+    },
+    {
       label: 'Testimonials',
       href: '#testimonials',
       showOnMobile: false,

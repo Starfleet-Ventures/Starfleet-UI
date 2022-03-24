@@ -15,6 +15,7 @@ import {MatCardModule} from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 
+
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
@@ -23,8 +24,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HttpClientModule } from "@angular/common/http";
-import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+
 import {NgxTypedJsModule} from 'ngx-typed-js';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
@@ -34,6 +36,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { MapComponent } from './map/map.component';
 import { MapPopupComponent } from './map-popup/map-popup.component';
+import { FeaturesComponent } from './features/features.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,8 @@ import { MapPopupComponent } from './map-popup/map-popup.component';
     LoginComponent,
     RegisterComponent,
     MapComponent,
-    MapPopupComponent
+    MapPopupComponent,
+    FeaturesComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,6 @@ import { MapPopupComponent } from './map-popup/map-popup.component';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    NgxPageScrollCoreModule,
     HttpClientModule,
     MatButtonModule,
     MatDividerModule,
@@ -70,7 +73,9 @@ import { MapPopupComponent } from './map-popup/map-popup.component';
     MatSelectModule,
     MatAutocompleteModule,
     NgxTypedJsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    NgbModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

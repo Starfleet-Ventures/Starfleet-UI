@@ -11,14 +11,14 @@
       <!-- <p *ngFor="let img of images; index as i">{{img}}</p> -->
     <div class="picsum-img-wrapper fill" >
       
-      <img [src]="img" alt="My image {{i + 1}} description" />
+      <img [src]="img.image" alt="My image {{i + 1}} description"/>
       <!-- <div class="bottom-left">Bottom Left</div>
       <div class="top-left">Top Left</div>
       <div class="top-right">Top Right</div>
       <div class="bottom-right">Bottom Right</div> -->
       <div class="centered">
-        <h3>Centered</h3>
-        <i>Subtitle</i>
+        <h1 [ngStyle.gt-md]="{'font-size': '40px'}" [ngStyle.lt-md]="{'font-size': '25px'}">{{img.heading}}</h1>
+        <i style="white-space: nowrap;"[ngStyle.gt-md]="{'font-size': '15px'}" [ngStyle.lt-md]="{'font-size': '7.5px'}">{{img.subheading}}</i>
       </div>
     </div>
     <!-- </a> -->

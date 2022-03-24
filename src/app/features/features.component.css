@@ -38,39 +38,9 @@ ngb-carousel .picsum-img-wrapper > img {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #00000080;
-}
-.bottom-left {
-  position: absolute;
-  bottom: 8px;
-  left: 16px;
-  color: white;
-  z-index: 2;
+  background-color: #00000093;
 }
 
-.top-left {
-  position: absolute;
-  top: 8px;
-  left: 16px;
-  color: white;
-  z-index: 2;
-}
-
-.top-right {
-  position: absolute;
-  top: 8px;
-  right: 16px;
-  color: white;
-  z-index: 2;
-}
-
-.bottom-right {
-  position: absolute;
-  bottom: 8px;
-  right: 16px;
-  color: white;
-  z-index: 2;
-}
 
 .centered {
   position: absolute;

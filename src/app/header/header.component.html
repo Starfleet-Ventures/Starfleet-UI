@@ -1,5 +1,5 @@
 <mat-toolbar fxLayout="row" fxLayoutAlign="end center" class="toolbar">
-  <a pageScroll href="#home" style="text-decoration: none; color: black;">
+  <a  href="#home" style="text-decoration: none; color: black;">
   <button mat-icon-button disableRipple class="icon" aria-label="Starfleet icon">
     <mat-icon svgIcon="logo"></mat-icon>
   </button></a>
@@ -11,7 +11,7 @@
   [fxShow]="item.showOnDesktop" 
   [fxShow.xs]="item.showOnMobile" 
   [fxShow.sm]="item.showOnTablet">
-    <a pageScroll [href]="item.href" class="link-decor" [ngStyle]="item.label === 'Request A Demo'?{'color':'white'}:{'color':'black'}">{{item.label}}</a>
+    <a  [href]="item.href" class="link-decor" [ngStyle]="item.label === 'Request A Demo'?{'color':'white'}:{'color':'black'}">{{item.label}}</a>
   </span>
     
   
@@ -25,7 +25,7 @@
         <ng-container *ngFor="let item of menuItems; index as i">
           
             <div *ngIf="item.onlyOnMenu === false; else other_condition" [fxShow]="!item.showOnDesktop" [fxShow.sm]="!item.showOnTablet" [fxShow.xs]="!item.showOnMobile">
-              <a mat-menu-item pageScroll [href]="item.href" class="link-decor">{{item.label}}</a>  
+              <a mat-menu-item [href]="item.href" class="link-decor">{{item.label}}</a>  
                 
             </div>
             <ng-template  #other_condition>

@@ -1,15 +1,16 @@
 <div fxFlex="50" fxFlex.xs="">
   <div style="text-align: center;">
-    <h1>
-    <ngx-typed-js [strings]="['An Efficient tomorrow.', 'A Greener Tomorrow.']" [loop]="true" [shuffle]="true" [typeSpeed]="100" [backSpeed]="100">
+    <h1 [ngStyle.gt-md]="{'font-size': '40px'}">
+    <ngx-typed-js [strings]="['An Efficient Tomorrow', 'A Greener Tomorrow']" [loop]="true" [shuffle]="false" [typeSpeed]="50" [backSpeed]="10">
       <span class="typing"></span>
     </ngx-typed-js>
   </h1>
   </div>
   <br>
   <div style="text-align: justify; text-justify: auto; margin: 25px;">
-    <h3> We at Starfleet are designing AI driven Data visualization technologies that are contributing to achieving environmental sustainability on a global scale every day. We provide the Canadian and US industry with AI-based analytics to go green and generate energy in off-grid conditions. Starfleet's unique advantages have put us at the forefront of monitoring forests, oil wells, shipping lanes, and strategic infrastructure.
-      As we transition towards a net-zero future, the oil, mining, and forestry sectors will play a crucial role in our green recovery. While Canadian and US industry needs to extract natural resources, we are helping them improve their efficiency and enhance environmental performance.</h3>
+    <h3 [ngStyle.gt-md]="{'font-size': '17px'}"> We at Starfleet are designing AI driven Data visualisation technologies that would contribute in achieving environmental sustainability on a global scale every day. We aspire to provide the Canadian and US industry with AI-based analytics to go green and generate energy in off-grid conditions. Starfleet's unique advantages have put us at the forefront of monitoring forests, oil wells, shipping lanes, and strategic infrastructure.
+      As we transition towards a net-zero future, the oil, mining, and forestry sectors will play a crucial role in our green recovery. While Canadian and US industry needs to extract natural resources, we would help them improve their efficiency and enhance environmental performance.
+      </h3>
   </div>  
   
   </div>

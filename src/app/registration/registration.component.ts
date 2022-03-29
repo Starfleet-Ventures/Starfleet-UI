@@ -12,41 +12,20 @@ import {map, startWith} from 'rxjs/operators';
   providers: [AppService]
 })
 export class RegistrationComponent implements OnInit {
-  cclist: CountriesInfo[] = [];
+  
   demoForm = new FormGroup({
     name: new FormControl('', Validators.required),
-    org: new FormControl('', Validators.required),
-    ccode: new FormControl('', [Validators.required]), // 
-    phone: new FormControl('', [Validators.required,Validators.pattern(/^[0-9]\d*$/)]), // Validators.pattern(new RegExp('^[0-9]*'))
-    designation: new FormControl('', Validators.required),
     email:  new FormControl('', [Validators.required,Validators.email]),
     message: new FormControl('',Validators.required),  
   });
-  filteredCcodeOptions: Observable<CountriesInfo[]>;
+  success: boolean = false;
 
   constructor(private appService: AppService) { }
 
   ngOnInit(): void {
-    this.appService.getCountriesInfo().subscribe(success=>{
-      success.response.map(itm=>this.cclist.push(itm));
-    },failure=>{
-      this.cclist = [];
-    });
-    this.filteredCcodeOptions = this.demoForm.controls['ccode'].valueChanges.pipe(
-      startWith(''),
-      map(value => (typeof value === 'string' ? value : value === undefined || value === null? '': value.dial_code)),
-      map(name => (name ? this._filter(name) : this.cclist.slice())),
-    );
+    
   }
-  cCodeDisplayFn(countryInfo: CountriesInfo): string {
-    return countryInfo && countryInfo.dial_code ? countryInfo.dial_code : '';
-  }
-
-  private _filter(name: string): CountriesInfo[] {
-    const filterValue = name.toLowerCase();
-    let res = this.cclist.filter(option => option.dial_code.toLowerCase().includes(filterValue)); 
-    return res;
-  }
+  
   private _reset(): void {
     this.demoForm.reset();
     Object.keys(this.demoForm.controls).forEach(key => {
@@ -56,14 +35,7 @@ export class RegistrationComponent implements OnInit {
   private _createFormData(): FormData{
     const formData = new FormData();
     Object.keys( this.demoForm.controls).forEach(key => {
-      if(key === 'ccode'){
-        // console.log(this.demoForm.get(key));
-        console.log(this.demoForm.get(key).value.dial_code);
-        formData.append(key, this.demoForm.get(key).value.dial_code);
-      }else{
-        formData.append(key, this.demoForm.get(key).value);
-      }
-      
+    formData.append(key, this.demoForm.get(key).value);  
    });
     return formData;
   }
@@ -79,6 +51,7 @@ export class RegistrationComponent implements OnInit {
     // })
     this.appService.postDemoFormData(formData).subscribe((success)=>{
       console.log(success.message);
+      this.success = true;
       
     },(failure)=>{
       console.log("failed");

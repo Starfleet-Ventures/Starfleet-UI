@@ -1,77 +1,21 @@
   <mat-card fxFlex.gt-md="30" fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" style="padding: 32px;">
-    <h2 style="text-align: center;"> Demo Request Form </h2>
+    <h4 style="text-align: center;" *ngIf="success === true"> Form Submitted Successfully</h4>
+    <h2 style="text-align: center;"> Contact Us </h2>
         <form [formGroup]="demoForm" (submit)="submit()">
           <div fxFlexFill fxLayout="column" fxLayoutGap="10px">
-          <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="5px">
-            <div fxFlex="50%">
-              <mat-form-field class="form-field" appearance="outline">
-                <mat-label> Name
-                </mat-label>
-                <input type="text" matInput formControlName="name" required>
-                <mat-error *ngIf="demoForm.controls['name'].touched && demoForm.controls['name'].invalid">
-                  <br>
-                  <span *ngIf="demoForm.controls['name'].errors !== null && demoForm.controls['name'].errors['required']">This field is mandatory.</span>
-                </mat-error>
-              </mat-form-field>
+            <div fxLayout="row">
+              <div fxFlex >
+                <mat-form-field class="form-field" appearance="outline">
+                  <mat-label> Name
+                  </mat-label>
+                  <input type="text" matInput formControlName="name" required>
+                  <mat-error *ngIf="demoForm.controls['name'].touched && demoForm.controls['name'].invalid">
+                    <br>
+                    <span *ngIf="demoForm.controls['name'].errors !== null && demoForm.controls['name'].errors['required']">This field is mandatory.</span>
+                  </mat-error>
+                </mat-form-field>
+              </div>  
             </div>
-            <div fxFlex="50%">
-              <mat-form-field class="form-field" appearance="outline">
-                <mat-label> Organisation
-                </mat-label>
-                <input type="text" matInput formControlName="org" required>
-                <mat-error *ngIf="demoForm.controls['org'].touched && demoForm.controls['org'].invalid">
-                  <br>
-                  <span *ngIf="demoForm.controls['org'].errors !== null && demoForm.controls['org'].errors['required']">This field is mandatory.</span>
-                </mat-error>
-              </mat-form-field>
-
-            </div>
-          </div>
-          <div fxLayout.gt-sm="row" fxLayout.lt-md="column" 
-              fxLayoutGap="5px" class="block-2">
-              <!-- <div fxFlex.gt-sm="70%" fxFlex.lt-md="50%" fxLayoutAlign="center center"  -->
-              <div fxFlex="20%">
-              <mat-form-field style="width:100%; height: auto;" appearance="outline">
-                <mat-label>Country Code</mat-label>
-                <input type="text" matInput formControlName="ccode" [matAutocomplete]="auto" required>
-                <mat-autocomplete #auto="matAutocomplete" [displayWith]="cCodeDisplayFn">
-                  <mat-option *ngFor="let option of filteredCcodeOptions | async" [value]="option">
-                    {{option.dial_code}}
-                  </mat-option>
-                </mat-autocomplete>
-                <mat-error *ngIf="demoForm.controls['ccode'].touched && demoForm.controls['ccode'].invalid">
-                  <br>
-                  <!-- <span style="font-size:x-small; white-space: nowrap;" *ngIf="demoForm.controls['ccode'].errors !== null && demoForm.controls['ccode'].errors['pattern']">Pattern must be '+XX'.</span> -->
-                  <span style="font-size:x-small; white-space: nowrap;" *ngIf="demoForm.controls['ccode'].errors !== null && demoForm.controls['ccode'].errors['required']">Required.</span>
-                </mat-error>
-                  </mat-form-field>
-            
-            </div>
-            <!-- <div fxFlex.gt-sm="30%" fxFlex.lt-md="50%" fxLayoutAlign="center center"  -->
-              <div fxFlex="40%" >
-              <mat-form-field class="form-field" appearance="outline">
-                <mat-label> Phone Number
-                </mat-label>
-                <input type="text" matInput formControlName="phone" required>
-                <mat-error *ngIf="demoForm.controls['phone'].touched && demoForm.controls['phone'].invalid">
-                  <br>
-                  <span style="font-size:x-small; white-space: nowrap;" *ngIf="demoForm.controls['phone'].errors !== null && demoForm.controls['phone'].errors['pattern']">Only numbers are valid.</span>
-                  <span *ngIf="demoForm.controls['phone'].errors !== null && demoForm.controls['phone'].errors['required']">This field is mandatory.</span>
-                </mat-error>
-              </mat-form-field>
-            </div>
-              <div fxFlex="38%" >
-              <mat-form-field class="form-field" appearance="outline">
-                <mat-label> Designation
-                </mat-label>
-                <input type="text" matInput formControlName="designation" required>
-                <mat-error *ngIf="demoForm.controls['designation'].touched && demoForm.controls['designation'].invalid">
-                  <br>
-                  <span *ngIf="demoForm.controls['designation'].errors !== null && demoForm.controls['designation'].errors['required']">This field is mandatory.</span>
-                </mat-error>
-              </mat-form-field>
-            </div>
-          </div>
           <div fxLayout="row">
             <div fxFlex >
               <mat-form-field class="form-field" appearance="outline">

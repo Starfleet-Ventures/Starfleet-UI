@@ -3,21 +3,25 @@
 <app-header></app-header>
 
 <router-outlet></router-outlet>
-<div *ngIf="router.url != '/login' && router.url != '/register' && router.url !='/map-ui'">
-<mat-grid-list cols="1" rows="2" rowHeight="72.5em" gutterSize="0px">
+<div *ngIf="router.url === '/details'">
+  <mat-grid-list cols="1" rows="4" rowHeight="72.5em" gutterSize="0px">
+    <mat-grid-tile *ngFor="let detail of detailsList" [class]="detail.bgClass">
+      <app-details fxLayout="row" fxLayoutAlign="center center" fxFlexFill [heading]="detail.heading" [paragraph]="detail.paragraph"></app-details>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+<div *ngIf="router.url != '/details' && router.url != '/login' && router.url != '/register' && router.url !='/map-ui'">
+<mat-grid-list cols="1" rows="1" rowHeight="72.5em" gutterSize="0px">
   <mat-grid-tile id="home" class="home">
     <app-home fxLayout="row" fxLayoutAlign="center center" fxFlexFill></app-home>
   </mat-grid-tile>
-  <mat-grid-tile id="about" class="about">
-    <app-about fxLayout="row" fxLayoutAlign="center center" fxFlexFill></app-about>
-  </mat-grid-tile>
 </mat-grid-list>
 <app-features id="features"></app-features>   
-<!-- <mat-grid-tile id="features" class="features">
-    
-  </mat-grid-tile> -->
-  <mat-grid-list cols="1" rows="2" rowHeight="72.5em" gutterSize="0px">
-  <mat-grid-tile id="testimonials" class="testimonials">
+  <mat-grid-list cols="1" rows="3" rowHeight="72.5em" gutterSize="0px">
+    <mat-grid-tile id="about" class="about">
+      <app-about fxLayout="row" fxLayoutAlign="center center" fxFlexFill></app-about>
+    </mat-grid-tile>
+  <mat-grid-tile id="team" class="team">
     <app-testimonial fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap.xs="15%"></app-testimonial>
   </mat-grid-tile>
   <mat-grid-tile id="contact-us" class="registration">
@@ -26,5 +30,4 @@
 </mat-grid-list>
 
 </div>
-
 <app-footer class="footer"></app-footer> 

@@ -37,6 +37,7 @@ import { RegisterComponent } from './register/register.component';
 import { MapComponent } from './map/map.component';
 import { MapPopupComponent } from './map-popup/map-popup.component';
 import { FeaturesComponent } from './features/features.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { FeaturesComponent } from './features/features.component';
     RegisterComponent,
     MapComponent,
     MapPopupComponent,
-    FeaturesComponent
+    FeaturesComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

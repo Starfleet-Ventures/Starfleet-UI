@@ -1,0 +1,11 @@
+<div fxFlex="50" fxFlex.xs="" style="color: white;" *ngIf="heading !== '' && paragraph!== ''">
+    <div style="text-align: center;">
+      <h1 [ngStyle.gt-md]="{'font-size': '40px'}">{{heading}}
+</h1>
+    </div>
+    <br>
+    <div style="text-align: justify; text-justify: auto; margin: 25px;">
+      <h3 [ngStyle.gt-md]="{'font-size': '17px'}">{{paragraph}}</h3>
+    </div>  
+    
+    </div>

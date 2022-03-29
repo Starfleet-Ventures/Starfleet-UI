@@ -1,21 +1,23 @@
 
 <mat-card *ngFor="let testimonial of testimonialList" class="card" fxFlex.gt-md="30" fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
-    <mat-card-header>
-        <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image':' url(' + testimonial.img + ')'}"></div>
-        <mat-card-title>{{testimonial.name}}</mat-card-title>
-        <mat-card-subtitle>{{testimonial.org}}</mat-card-subtitle>
-      </mat-card-header>
-      <br>     
-<mat-card-content style="text-align: center;">
-    <mat-icon *ngFor="let i of createRange(testimonial.stars)">star_border</mat-icon>
-    <br>
-    <strong> {{testimonial.reviewTitle}} </strong>
-</mat-card-content>
-      
-      <mat-card-content>
-        <br>
-        <p>
-          {{testimonial.reviewContent}}
-        </p>
-      </mat-card-content>
+  <div>
+    <img 
+      style="clip-path: circle(); width: 200px; margin-bottom: 1em;"
+      [src]="testimonial.img"
+    />
+    <hr>      
+      <h2 style="font-weight: bold;">{{testimonial.name}}</h2>
+      <h4 style="font-weight: bold;">{{testimonial.title}}</h4>
+    <hr fxHide.xs>      
+
+    <mat-card-content>
+      <p fxHide.xs style="text-align: justify;">
+        {{testimonial.description}}
+      </p>
+    </mat-card-content>
+  </div>  
 </mat-card>
+
+
+
+

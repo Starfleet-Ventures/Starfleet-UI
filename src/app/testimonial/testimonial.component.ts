@@ -8,25 +8,24 @@ import { TestimonialItem } from './model/testimonial.model';
 export class TestimonialComponent implements OnInit {
   testimonialList: TestimonialItem[] = [
     {
-      name: 'Shiba Inu',
-      org: 'Dog Breed',
-      img: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
-      stars: 5,
-      reviewTitle: 'Excellent',
-      reviewContent: `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.`
+      name: 'Jeh Daruvala',
+      img: '../../assets/img/jeh.png', 
+      title: 'Founder and CEO',
+      description: `Jeh is a serial tech entrepreneur and has 22 years of
+      entrepreneurial, investment banking, and product management
+      experience. Before migrating to Canada in 2002, Jeh played a key
+      role in incubating Customer Asset, an India based IT infrastructure
+      services venture that evolved into the $300 million, Firstsource
+      Solutions. His first Canadian start-up, Yactraq, is a leading global
+      provider in AI/ML based speech analytics.`
     },
     {
-      name: 'Shiba Inu',
-      org: 'Dog Breed',
-      img: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
-      stars: 5,
-      reviewTitle: 'Excellent',
-      reviewContent: `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.`
-    }
+      name: 'Shapoor Marfatia',
+      img: '../../assets/img/shapoor.png', 
+      title: 'SVP Technology',
+      description: `Shapoor is an experienced IT professional and has handled multi-million dollar research funds with the IC-IMPACTS (Canada-India NCE Research Centres of Excellence). He is an expert at synthesising and communicating
+      insights and recommendations to audiences of varying levels of technical sophistication. As a director of business development at UBC he had led the growth charter for international business`
+    },
   ];
   createRange(i: number){
    

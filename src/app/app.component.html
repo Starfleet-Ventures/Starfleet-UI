@@ -3,23 +3,19 @@
 <app-header></app-header>
 
 <router-outlet></router-outlet>
-<div *ngIf="router.url === '/industries'">
-  <mat-grid-list cols="1" rows="4" rowHeight="62.5em" gutterSize="0px">
-    <mat-grid-tile *ngFor="let detail of detailsList" [class]="detail.bgClass">
-      <app-details [id]="detail.id" fxLayout="row" fxLayoutAlign="center center" fxFlexFill [heading]="detail.heading" [paragraph]="detail.paragraph"></app-details>
-    </mat-grid-tile>
-  </mat-grid-list>
-</div>
-<div *ngIf="router.url != '/industries' && router.url != '/login' && router.url != '/register' && router.url !='/map-ui'">
+<div *ngIf="router.url != '/login' && router.url != '/register' && router.url !='/map-ui'">
    <div fxLayout="column" fxLayoutAlign="space-around stretch">
   <img fxFlexFill id="home" src='../assets/img/starfleet_home_5.jpg'/>
-  <app-features id="features"></app-features>   
+     
 </div> 
 
-  <mat-grid-list cols="1" rows="3" rowHeight="60em" gutterSize="0px">
+  <mat-grid-list cols="1" rows="1" rowHeight="60em" gutterSize="0px">
     <mat-grid-tile id="about" class="about">
   <app-about fxFlexFill fxLayout="row" fxLayoutAlign="center center"></app-about>
   </mat-grid-tile>
+  </mat-grid-list>
+  <app-features id="industries"></app-features>
+  <mat-grid-list cols="1" rows="2" rowHeight="60em" gutterSize="0px">
   <mat-grid-tile id="team" class="team" >
   <app-testimonial fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap.xs="15%"></app-testimonial>
 </mat-grid-tile>

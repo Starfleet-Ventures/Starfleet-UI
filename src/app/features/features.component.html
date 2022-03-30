@@ -18,7 +18,9 @@
       <div class="bottom-right">Bottom Right</div> -->
       <div class="centered">
         <h1 [ngStyle.gt-md]="{'font-size': '40px'}" [ngStyle.lt-md]="{'font-size': '25px'}">{{img.heading}}</h1>
-        <i style="white-space: nowrap;"[ngStyle.gt-md]="{'font-size': '15px'}" [ngStyle.lt-md]="{'font-size': '7.5px'}">{{img.subheading}}</i>
+        <br fxHide.xs>
+        <br fxHide.xs>
+        <p style="text-align:justify; text-justify: auto;" [ngStyle.gt-md]="{'font-size': '25px','line-height':'1.25em'}" [ngStyle.lt-md]="{'font-size': '7.5px','line-height':'1em'}">{{img.subheading}}</p>
       </div>
     </div>
     <!-- </a> -->

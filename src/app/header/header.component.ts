@@ -36,10 +36,10 @@ export class HeaderComponent implements OnInit {
       
     },
     {
-      label: 'Features',
-      href: '#features',
+      label: 'Industries',
+      href: '#industries',
       showOnMobile: false,
-      showOnTablet: true,
+      showOnTablet: false,
       showOnDesktop: true,
       onlyOnMenu: false
       
@@ -53,15 +53,7 @@ export class HeaderComponent implements OnInit {
       onlyOnMenu: false
       
     },
-    {
-      label: 'Industries',
-      href: '/industries',
-      showOnMobile: false,
-      showOnTablet: false,
-      showOnDesktop: true,
-      onlyOnMenu: false
-      
-    },
+    
     {
       label: 'Request A Demo',
       href: '#contact-us',

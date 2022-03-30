@@ -54,8 +54,8 @@ export class HeaderComponent implements OnInit {
       
     },
     {
-      label: 'Details',
-      href: '/details',
+      label: 'Industries',
+      href: '/industries',
       showOnMobile: false,
       showOnTablet: false,
       showOnDesktop: true,

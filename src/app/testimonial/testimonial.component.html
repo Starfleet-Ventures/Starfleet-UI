@@ -1,17 +1,24 @@
 
-<mat-card *ngFor="let testimonial of testimonialList" class="card" fxFlex.gt-md="30" fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+<mat-card (click)="testimonial.collapsed = !testimonial.collapsed" *ngFor="let testimonial of testimonialList" class="card" fxFlex.gt-md="30" fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
   <div>
     <img 
-      style="clip-path: circle(); width: 200px; margin-bottom: 1em;"
+      
       [src]="testimonial.img"
+      fxFlexFill
+      fxHide.xs
+    />
+    <img 
+      style="width: 200px; margin-bottom: 1em;"
+      [src]="testimonial.img"
+      fxHide.gt-xs
     />
     <hr>      
       <h2 style="font-weight: bold;">{{testimonial.name}}</h2>
       <h4 style="font-weight: bold;">{{testimonial.title}}</h4>
     <hr fxHide.xs>      
 
-    <mat-card-content>
-      <p fxHide.xs style="text-align: justify;">
+    <mat-card-content *ngIf="testimonial.collapsed === false">
+      <p  fxHide.xs style="text-align: justify;">
         {{testimonial.description}}
       </p>
     </mat-card-content>

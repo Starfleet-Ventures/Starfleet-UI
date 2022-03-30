@@ -7,7 +7,7 @@ import { DetailsComponent } from './details/details.component';
 const routes: Routes = [{path: 'login',component: LoginComponent},
 {path: 'register',component: RegisterComponent},
 {path: 'map-ui', component: MapComponent},
-{path: 'details', component: DetailsComponent}];
+{path: 'industries', component: DetailsComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,12 +1,12 @@
-  <mat-card fxFlex.gt-md="30" fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" style="padding: 32px;">
+  <mat-card fxFlex.gt-md="50" fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" style="padding: 56px 68px 56px 68px; background-color: #ddedf3; opacity: 0.9;">
     <h4 style="text-align: center;" *ngIf="success === true"> Form Submitted Successfully</h4>
-    <h2 style="text-align: center;"> Contact Us </h2>
+    <h1 style="text-align: center;"> Contact Us </h1>
         <form [formGroup]="demoForm" (submit)="submit()">
           <div fxFlexFill fxLayout="column" fxLayoutGap="10px">
             <div fxLayout="row">
               <div fxFlex >
                 <mat-form-field class="form-field" appearance="outline">
-                  <mat-label> Name
+                  <mat-label style="font-size:medium;"> Name
                   </mat-label>
                   <input type="text" matInput formControlName="name" required>
                   <mat-error *ngIf="demoForm.controls['name'].touched && demoForm.controls['name'].invalid">
@@ -19,7 +19,7 @@
           <div fxLayout="row">
             <div fxFlex >
               <mat-form-field class="form-field" appearance="outline">
-                <mat-label> Email
+                <mat-label style="font-size:medium;"> Email
                 </mat-label>
                 <input type="email" matInput formControlName="email" required>
                 <mat-error *ngIf="demoForm.controls['email'].touched && demoForm.controls['email'].invalid">
@@ -32,9 +32,9 @@
           <div fxLayout="row">
             <div fxFlex>
               <mat-form-field class="form-field" appearance="outline">
-                <mat-label> Message
+                <mat-label style="font-size:medium;"> Message
                 </mat-label>
-                <textarea rows="12" matInput formControlName="message" placeholder="Message..."></textarea>
+                <textarea rows="6" matInput formControlName="message" placeholder="Message..."></textarea>
                 <mat-error *ngIf="demoForm.controls['message'].touched && demoForm.controls['message'].invalid">
                   <br>
                   <span *ngIf="demoForm.controls['message'].errors !== null && demoForm.controls['message'].errors['required']">This field is mandatory.</span>
@@ -42,7 +42,7 @@
               </mat-form-field>
             </div>  
           </div>
-          <button fxFill mat-raised-button type="submit" style="background-color: orange; color: white;">Submit</button>   
+          <button fxFill mat-raised-button type="submit" style="background-color: rgb(147, 36, 57); color: white; padding: 0.4em; font-size: large;">Submit</button>   
         </div>
        
 </form>

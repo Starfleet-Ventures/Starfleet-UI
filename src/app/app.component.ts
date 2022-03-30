@@ -6,6 +6,7 @@ interface DetailsComponent{
   heading: string,
   paragraph: string,
   bgClass: string,
+  id: string,
 }
 @Component({
   selector: 'app-root',
@@ -16,22 +17,26 @@ export class AppComponent {
   breakpoint: number;
   detailsList: DetailsComponent[] = [
     {
-      bgClass: 'home',
+      id: '#forestry',
+      bgClass: 'industries__forestry',
       heading: 'Forestry',
       paragraph: 'AI/ML based computer vision on satellite images offers huge possibilities in the field of forestry. We use these algorithms to identify the forest fuel maps and estimate the high risk areas in forest fires. We also use the current state of art technology to identify the changes in the forest coverage across the globe'
     },
     {
+      id: '#mining',
       bgClass: 'about',
       heading: 'Mining',
       paragraph: 'We aspire to use the LIDAR based satellite data to estimate the mining volume over a duration of time. This novel technology offers an unparalleled transparency into mining and can even be used during harsh weather conditions.'
     },
     {
-      bgClass: 'team',
+      id: '#agriculture',
+      bgClass: 'industries__agriculture',
       heading: 'Agriculture',
       paragraph: 'We plan to use satellite data to predict the agricultural output over a cultivation cycle. From identifying the agricultural fields, to estimating the agriculture output to predicting the future prices, we are creating a complete technological solution for the agricultural sector.'
     },
     {
-      bgClass: 'registration',
+      id: '#ong',
+      bgClass: 'industries__ong',
       heading: 'Oil and Gas',
       paragraph: 'Satellite imagery and GIS map data has huge cost benefits in tracking the pipeline corridor and can significantly reduce the number of safety and security issues in the supply chain. We would be aiding the supply managers with solutions that can help the planning of pipeline corridors through contour mapping and potential risk profiling.'
     }

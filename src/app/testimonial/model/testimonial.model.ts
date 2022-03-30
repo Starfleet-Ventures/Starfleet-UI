@@ -5,4 +5,5 @@ export interface TestimonialItem {
     img: string,
     title: string,
     description: string,
+    collapsed: boolean
 }

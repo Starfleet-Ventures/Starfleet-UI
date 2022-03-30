@@ -4,23 +4,30 @@
 
 <router-outlet></router-outlet>
 <div *ngIf="router.url != '/login' && router.url != '/register' && router.url !='/map-ui'">
-   <div fxLayout="column" fxLayoutAlign="space-around stretch">
-  <img fxFlexFill id="home" src='../assets/img/starfleet_home_5.jpg'/>
-     
-</div> 
-
-  <mat-grid-list cols="1" rows="1" rowHeight="60em" gutterSize="0px">
-    <mat-grid-tile id="about" class="about">
-  <app-about fxFlexFill fxLayout="row" fxLayoutAlign="center center"></app-about>
+   <!-- <div fxLayout="column" fxLayoutAlign="start">
+  <img fxFlex="100%" id="home" src='https://getwalls.io/wallpapers/332540/2020--07--black-hole-background-images-hd-1080p-free-download-pc.jpg'/>
+</div>  -->
+<mat-grid-list cols="1" rows="2" rowHeight="60em" gutterSize="0px">
+  <mat-grid-tile id="home" class="home" [ngStyle.xs]="{'background-image':'url(../assets/img/image-10-mobile.jpeg)'}" [ngStyle.gt-xs]="{'background-image':'url(../assets/img/image-10-desktop.jpg)'}">
+  
+    
+</mat-grid-tile>  
+  <mat-grid-tile id="about" class="about">
+  
+      <app-about fxLayout="row" fxLayoutAlign="center center"></app-about>
   </mat-grid-tile>
-  </mat-grid-list>
-  <app-features id="industries"></app-features>
-  <mat-grid-list cols="1" rows="2" rowHeight="60em" gutterSize="0px">
+</mat-grid-list>
+<app-features id="industries"></app-features>
+<mat-grid-list cols="1" rows="2" rowHeight="60em" gutterSize="0px">
   <mat-grid-tile id="team" class="team" >
-  <app-testimonial fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap.xs="15%"></app-testimonial>
+
+    <app-testimonial  fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap.xs="15%"></app-testimonial>  
+    
+    
+
 </mat-grid-tile>
   <mat-grid-tile id="contact-us" class="registration">
-    <app-registration  fxLayout="row" fxLayoutAlign="space-around center" fxFlexFill></app-registration>
+    <app-registration   fxLayout="row" fxLayoutAlign="space-around center" fxFlexFill></app-registration>
   </mat-grid-tile>
 </mat-grid-list>
 

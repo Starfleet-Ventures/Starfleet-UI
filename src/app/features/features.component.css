@@ -41,6 +41,12 @@ ngb-carousel .picsum-img-wrapper > img {
   background-color: #00000093;
 }
 
+::ng-deep .carousel .carousel-item {
+  height: 60em;
+}
+::ng-deep .picsum-img-wrapper{
+  position: initial !important;
+}
 
 .centered {
   position: absolute;

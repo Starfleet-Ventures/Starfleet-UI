@@ -9,9 +9,12 @@
   <ng-template ngbSlide *ngFor="let img of images; index as i">
     <!-- <a href="https://www.google.fr/?q=Number+{{i+1}}" target="_blank" rel="nofollow noopener noreferrer"> -->
       <!-- <p *ngFor="let img of images; index as i">{{img}}</p> -->
-    <div class="picsum-img-wrapper fill" >
-      
-      <img [src]="img.image" alt="My image {{i + 1}} description"/>
+    <div  class="fill" ngClass.gt-xs="picsum-img-wrapper">
+      <img fxHide.xs [src]="img.image"  alt="My image {{i + 1}} description"/>
+      <div fxHide.gt-xs class="picsum-img-wrapper">
+      <img [src]="img.image"  alt="My image {{i + 1}} description"/>
+    </div>
+
       <!-- <div class="bottom-left">Bottom Left</div>
       <div class="top-left">Top Left</div>
       <div class="top-right">Top Right</div>

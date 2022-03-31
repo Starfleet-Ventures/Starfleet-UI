@@ -42,7 +42,7 @@ ngb-carousel .picsum-img-wrapper > img {
 }
 
 ::ng-deep .carousel .carousel-item {
-  height: 60em;
+  height: 72.5em;
 }
 ::ng-deep .picsum-img-wrapper{
   position: initial !important;
@@ -51,6 +51,15 @@ ngb-carousel .picsum-img-wrapper > img {
 .centered {
   position: absolute;
   top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  z-index: 2;
+}
+
+.top_heading {
+  position: absolute;
+  top:25%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;

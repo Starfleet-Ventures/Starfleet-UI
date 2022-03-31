@@ -9,24 +9,6 @@ import {Router} from '@angular/router';
 export class HeaderComponent implements OnInit {
   menuItems: HeaderItemList[] = [
     {
-      label: 'Login',
-      href: '/login',
-      showOnMobile: false,
-      showOnTablet: false,
-      showOnDesktop: false,
-      onlyOnMenu: true
-      
-    },
-    {
-      label: 'Register',
-      href: '/register',
-      showOnMobile: false,
-      showOnTablet: false,
-      showOnDesktop: false,
-      onlyOnMenu: true
-      
-    },
-    {
       label: 'About',
       href: '#about',
       showOnMobile: false,

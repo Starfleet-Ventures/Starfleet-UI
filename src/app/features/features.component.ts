@@ -24,12 +24,12 @@ export class FeaturesComponent implements OnInit {
     { 
       image:'../../assets/img/forestry.jpeg',
       heading:'Forestry',
-      subheading:'AI/ML-based computer vision on satellite images offers enormous possibilities in the field of forestry. We use these algorithms to identify the forest fuel maps and estimate the high-risk areas in forest fires. We also use the current state of art technology to identify the changes in forest coverage across the globe.'
+      subheading:'AI/ML-based computer vision on satellite images offers enormous possibilities in the field of forestry. We use these algorithms to identify forest fuel maps and estimate high-risk areas in forest fires. We also use state of the art technology to identify the changes in forest cover across the globe'
     },
     { 
       image:'../../assets/img/mining.jpeg',
       heading:'Mining',
-      subheading:'We aspire to use the LIDAR-based satellite data to estimate the mining volume over a duration of time. This novel technology offers unparalleled transparency into mining and can even be used during harsh weather conditions.'
+      subheading:'We aspire to use LIDAR-based satellite data to estimate mining volumes over a duration of time. This novel technology offers unparalleled transparency into mining and can even be used during harsh weather conditions'
     },
     { 
       image:'../../assets/img/agriculture.jpeg',
@@ -39,7 +39,7 @@ export class FeaturesComponent implements OnInit {
     { 
       image:'../../assets/img/ong.webp',
       heading:'Oil and Gas',
-      subheading:'Satellite imagery and GIS map data have substantial cost benefits in tracking the pipeline corridor and can significantly reduce the number of safety and security issues in the supply chain. We would be aiding the supply managers with solutions that can help the planning of pipeline corridors through contour mapping and potential risk profiling.'
+      subheading:'Satellite imagery and GIS map data have substantial cost benefits in tracking pipeline corridors and can significantly reduce the number of safety and security issues in the supply chain. We would be aiding supply managers with solutions that can help in planning of pipeline corridors through contour mapping and potential risk profiling'
     }
 
 ]

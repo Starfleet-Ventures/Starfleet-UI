@@ -21,10 +21,10 @@
       <div class="top-right">Top Right</div>
       <div class="bottom-right">Bottom Right</div> -->
       <div class="top_heading">
-        <h1 [ngStyle.gt-md]="{'font-size': '40px'}" [ngStyle.lt-md]="{'font-size': '36px','white-space':'nowrap'}">{{img.heading}}</h1>
+        <h1 [ngStyle]="{'font-size':'38px'}" [ngStyle.gt-md]="{'font-size': '40px'}" [ngStyle.lt-md]="{'font-size': '36px','white-space':'nowrap'}">{{img.heading}}</h1>
       </div>
       <div class="centered">
-        <p style="text-align: left; hyphens: auto;" [ngStyle.gt-md]="{'font-size': '25px','line-height':'1.25em'}" [ngStyle.lt-md]="{'font-size': '20px','line-height':'1em'}">{{img.subheading}}</p>
+        <p style="text-align: left; hyphens: auto;" [ngStyle.xs]="{'font-size':'18px','line-height':'1em'}" [ngStyle.gt-md]="{'font-size': '30px','line-height':'1.25em'}" [ngStyle.gt-sm]="{'font-size': '28.5px','line-height':'1.25em'}" [ngStyle]="{'font-size': '26px','line-height':'1.25em'}">{{img.subheading}}</p>
       </div>
     </div>
     <!-- </a> -->

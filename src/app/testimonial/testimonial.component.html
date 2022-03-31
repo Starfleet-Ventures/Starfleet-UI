@@ -1,5 +1,5 @@
 
-<mat-card *ngFor="let testimonial of testimonialList" class="card" fxFlex.gt-md="30" fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+<mat-card *ngFor="let testimonial of testimonialList" class="card" fxFlex.gt-md="30" fxFlex="calc(33%-25px)" fxFlex.sm="calc(33%-25px)">
   <div>
     <img 
       
@@ -15,10 +15,10 @@
     <hr>      
       <h2 style="font-weight: bold;">{{testimonial.name}}</h2>
       <h4 style="font-weight: bold;">{{testimonial.title}}</h4>
-    <hr fxHide.xs>      
+    <hr>      
 
     <mat-card-content>
-      <p  fxHide.xs style="text-align: left; hyphens: auto;">
+      <p style="text-align: left; hyphens: auto;">
         {{testimonial.description}}
       </p>
     </mat-card-content>

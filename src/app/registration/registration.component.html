@@ -1,6 +1,6 @@
   <mat-card fxFlex.gt-md="50" fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)" style="padding: 56px 68px 56px 68px; background-color: #ddedf3; opacity: 0.9;">
     <h4 style="text-align: center;" *ngIf="success === true"> Form Submitted Successfully</h4>
-    <h1 style="text-align: center; text-shadow: 0 0 black;"> Contact Us </h1>
+    <h1 style="text-align: center; text-shadow: 0 0 black; font-family: 'Orbitron', sans-serif;"> Contact Us </h1>
         <form [formGroup]="demoForm" (submit)="submit()">
           <div fxFlexFill fxLayout="column" fxLayoutGap="10px">
             <div fxLayout="row">
@@ -42,7 +42,7 @@
               </mat-form-field>
             </div>  
           </div>
-          <button fxFill mat-raised-button type="submit" style="background-color: rgb(147, 36, 57); color: white; padding: 0.4em; font-size: large;">Submit</button>   
+          <button mat-raised-button type="submit" style="background-color: #ad8737; font-family: 'Orbitron', sans-serif; color: white; padding: 0.4em; font-size: large;">Submit</button>   
         </div>
        
 </form>

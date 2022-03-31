@@ -17,16 +17,14 @@ export class TestimonialComponent implements OnInit {
       role in incubating Customer Asset, an India based IT infrastructure
       services venture that evolved into the $300 million, Firstsource
       Solutions. His first Canadian start-up, Yactraq, is a leading global
-      provider in AI/ML based speech analytics.`,
-      collapsed: true
+      provider in AI/ML based speech analytics.`
     },
     {
       name: 'Shapoor Marfatia',
       img: '../../assets/img/shapoor.png', 
       title: 'SVP Technology',
       description: `Shapoor is an experienced IT professional and has handled multi-million dollar research funds with the IC-IMPACTS (Canada-India NCE Research Centres of Excellence). He is an expert at synthesising and communicating
-      insights and recommendations to audiences of varying levels of technical sophistication. As a director of business development at UBC he had led the growth charter for international business`,
-      collapsed: true
+      insights and recommendations to audiences of varying levels of technical sophistication. As a director of business development at UBC he had led the growth charter for international business`
     },
   ];
   createRange(i: number){

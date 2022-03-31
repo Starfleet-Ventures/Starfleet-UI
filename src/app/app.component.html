@@ -7,10 +7,12 @@
    <!-- <div fxLayout="column" fxLayoutAlign="start">
   <img fxFlex="100%" id="home" src='https://getwalls.io/wallpapers/332540/2020--07--black-hole-background-images-hd-1080p-free-download-pc.jpg'/>
 </div>  -->
-<mat-grid-list cols="1" rows="2" rowHeight="60em" gutterSize="0px">
-  <mat-grid-tile id="home" class="home" [ngStyle.xs]="{'background-image':'url(../assets/img/image-10-mobile.jpeg)'}" [ngStyle.gt-xs]="{'background-image':'url(../assets/img/image-10-desktop.jpg)'}">
-  
-    
+<mat-grid-list cols="1" rows="2" rowHeight="72.5em" gutterSize="0px">
+  <mat-grid-tile id="home" class="home" [ngStyle.xs]="{'background-image':'linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),url(../assets/img/home_section_portrait.jpg)'}" [ngStyle.gt-xs]="{'background-image':'linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),url(../assets/img/home_section_landscape.jpg)'}">
+   <div fxLayout="column" fxLayoutAlign="space-between center" fxLayoutGap="12%">
+   <img fxFlexFill src="../assets/img/starfleet-logo_gold.png"/>
+   <h2 [ngStyle.xs]="{'font-size':'18px'}"style="font-family: 'Dosis', 'Helvetica Neue', Helvetica, Arial, sans-serif; text-align: center; font-weight: bold; margin-left: 2.5%; margin-right: 2.5%;"> BUSINESS INSIGHTS FROM SATELLITE DATA FOR A SUSTAINABLE TOMORROW</h2>
+  </div>
 </mat-grid-tile>  
   <mat-grid-tile id="about" class="about">
   
@@ -18,7 +20,7 @@
   </mat-grid-tile>
 </mat-grid-list>
 <app-features id="industries"></app-features>
-<mat-grid-list cols="1" rows="2" rowHeight="60em" gutterSize="0px">
+<mat-grid-list cols="1" rows="2" rowHeight="72.5em" gutterSize="0px">
   <mat-grid-tile id="team" class="team" >
 
     <app-testimonial  fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap.xs="15%"></app-testimonial>  

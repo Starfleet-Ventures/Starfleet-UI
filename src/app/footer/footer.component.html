@@ -2,14 +2,14 @@
     <div fxFlexFill style="height: 8.25em;" fxLayout="row" fxLayoutAlign="space-evenly center" fxLayoutGap="20px" fxLayoutGap.lt-sm="8.5px">
   
         
-        <a href="#" style="text-align: center; text-decoration: none; color: white;">
-            <mat-icon > mail </mat-icon>
-            <p style="font-size: x-small; overflow: hidden; white-space: nowrap;">support@starfleet.com</p>
+        <a href="mailto:bizdev@starfleet.ventures" style="text-align: center; text-decoration: none; color: white;">
+            <mat-icon style="font-size: xx-large;"> mail </mat-icon>
+            <p [ngStyle.lt-md]="{'font-size': 'x-small'}" [ngStyle.gt-md]="{'font-size': 'small'}" style="overflow: hidden; white-space: nowrap;">bizdev@starfleet.ventures</p>
         </a>
         
             <div  style="text-align: center;">
-                <mat-icon >location_on</mat-icon>
-                <p style="font-size: xx-small; overflow: hidden; white-space: nowrap;">ABC, XYZ, COUNTRY, PINCODE</p>
+                <mat-icon style="font-size: xx-large;">location_on</mat-icon>
+                <p [ngStyle.lt-md]="{'font-size': 'x-small'}" [ngStyle.gt-md]="{'font-size': 'small'}" style="overflow: hidden; white-space: nowrap;">ABC, XYZ, COUNTRY, PINCODE</p>
             </div>
         
             

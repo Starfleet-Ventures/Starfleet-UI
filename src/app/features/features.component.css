@@ -50,7 +50,7 @@ ngb-carousel .picsum-img-wrapper > img {
 
 .centered {
   position: absolute;
-  top: 50%;
+  top: 49.25%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
@@ -59,7 +59,7 @@ ngb-carousel .picsum-img-wrapper > img {
 
 .top_heading {
   position: absolute;
-  top:23.25%;
+  top:27.5%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;

@@ -6,21 +6,11 @@ const cclist = require('../../config/countries-and-phone-codes.json');
 const DemoFormModel = require('../../models/DemoForm');
 
 const transporter = nodemailer.createTransport({
-    /*  service: 'gmail',
+    service: 'gmail',
       auth: {
-        user: 'yactraqservices@gmail.com',
-        pass: 'yactraq000@'
+        user: 'ishansharma1320@gmail.com',
+        pass: 'sdsdzsyrpjazmyxf'
       }
-    */
-    
-    service: 'yactraq',
-    host: "mail.hover.com",
-    //secureConnection: true,
-    port: 587,
-    auth: {
-    user: 'ishan@yactraq.net',
-    pass: 'Shar@13-02'
-    }
     });
 
 
@@ -28,13 +18,19 @@ const transporter = nodemailer.createTransport({
 const demoMail = (name, email, message)=>{ 
     console.log(name, email, message);
     var mailOptions = {
-        from: '"Starfleet" <ishan@yactraq.net>',
+        from: '"Starfleet" <ishansharma1320@gmail.com>',
         to: 'bizdev@starfleet-ventures.com',
         bcc: ['ishan@yactraq.net'],
         subject: `Starfleet:: Demo Form Requested By ${name}`,
-        html: `Name: ${name}
-               Email: ${email}
-               Message: ${message}
+        html: `Hi, <br><br>
+        Please find attached the user details for Demo Request for Starfleet<br><br>
+        Name: ${name}<br>
+        Email: ${email}<br>
+        Message: ${message}<br><br><br>
+
+        ----------------<br>
+        Thanks & Regards,<br>
+        Ishan Sharma<br>
         `
 
     };

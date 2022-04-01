@@ -98,7 +98,7 @@ app.use('/form',formRouter);
 app.get('*',(req,res)=>{
   res.sendFile(path.join(__dirname,'..','dist','starfleet','index.html'));
 })
-app.listen(PORT, function () {
+app.listen(PORT,dev.host, function () {
     console.log('server started at port : '+PORT);
 });
 

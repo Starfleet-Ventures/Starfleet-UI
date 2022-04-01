@@ -13,7 +13,7 @@ router.get('/getProcessedImages',(req,res)=>{
     
     fs.readdirSync(outputImgPath).forEach(file => {
       if(file.includes(req.query.image)){
-        files.push(`${req.protocol}://${req.get('host')}/map/output/${user}/${file}`)
+        files.push(`http://3.95.149.159/map/output/${user}/${file}`)
       }
     });
     res.status(200).json({processed: files}); 
@@ -61,7 +61,7 @@ router.post('/detect',async (req,res)=>{
         console.log(e);
         flag = false;
       }
-    flag === true?res.status(200).json({processedImageUrl: `${req.protocol}://${req.get('host')}/map/output/${user}/${modelType}_${imageName}`}):res.status(500).json({error: 'Work In Progress'});
+    flag === true?res.status(200).json({processedImageUrl: `http://3.95.149.159/map/output/${user}/${modelType}_${imageName}`}):res.status(500).json({error: 'Work In Progress'});
 })
 
 module.exports = router;

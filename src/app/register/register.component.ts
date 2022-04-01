@@ -52,11 +52,11 @@ export class RegisterComponent implements OnInit {
       switch(fail.error.target){
         case 'user_already_exists':
           this.message = "Seems Like User already exists, Please Login";
-          this.link = "http://34.139.101.136:8000/login";
+          this.link = "http://3.95.149.159/login";
           break;
         case 'not_internal':
           this.message = "Register functionality is only available for internal organisation purposes only. For a Demo, Please fill the demo request form"
-          this.link = "http://34.139.101.136:8000/#contact-us";
+          this.link = "http://3.95.149.159/#contact-us";
           break;
       }
     })

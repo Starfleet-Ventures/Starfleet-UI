@@ -49,6 +49,7 @@ const demoMail = (name, email, message)=>{
     };    
 router.post('/postDemoForm',upload.none(),async (req,res)=>{
     const obj = req.body;
+    console.log(req.body);
     let demoFormObj = new DemoFormModel(obj);
     
     await demoFormObj.save();

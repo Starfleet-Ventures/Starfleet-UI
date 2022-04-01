@@ -15,7 +15,7 @@ export class RegistrationComponent implements OnInit {
   
   demoForm = new FormGroup({
     name: new FormControl('', Validators.required),
-    email:  new FormControl('', [Validators.required,Validators.email]),
+    email:  new FormControl('', [Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
     message: new FormControl('',Validators.required),  
   });
   success: boolean = false;

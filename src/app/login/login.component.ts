@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
       switch(fail.error.target){
         case 'no_user_exists':
           this.message = "No User Exists for the provided username and password combination. Please Register";
-          this.link = "http://3.95.149.159/register";
+          this.link = "https://starfleet.ventures/register";
           break;
         case 'wrong_password':
           this.message = "Entered Password is Incorrect";

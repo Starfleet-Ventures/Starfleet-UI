@@ -6,7 +6,7 @@ import { CountriesInfo } from './model/countries.model';
   })
 export class AppService{
     constructor(private httpClient: HttpClient) { }
-    private SERVER_URL = 'http://3.95.149.159';
+    private SERVER_URL = 'https://starfleet.ventures';
     
     getCountriesInfo(){
         return this.httpClient.get<{response: CountriesInfo[]}>('/form/getCountriesInfo');

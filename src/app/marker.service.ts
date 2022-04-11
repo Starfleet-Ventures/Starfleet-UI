@@ -22,7 +22,7 @@ export class MarkerService {
         let processedImages = [];
         marker.on('click',(e)=>{
           var request = new XMLHttpRequest();
-          request.open('GET', "http://13.127.219.224/api/getProcessedImages?image="+imgArray[imgArray.length-1], false);  
+          request.open('GET', "http://13.127.219.224:3003/api/getProcessedImages?image="+imgArray[imgArray.length-1], false);  
           request.send(null);
           const response = JSON.parse(request.responseText); 
           processedImages = response.processed;

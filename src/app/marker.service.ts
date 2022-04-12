@@ -13,9 +13,7 @@ export class MarkerService {
   makeCapitalMarkers(map: L.map): void { 
     console.log('marker');
     map.on('popupopen', (e)=> {
-      let px = map.project(e.target._popup._latlng); // find the pixel location on the map where the popup anchor is
-      px.y -= e.target._popup._container.clientHeight/2; // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
-      map.panTo(map.unproject(px),{animate: true}); // pan to new center
+      map.setView(e.target._popup._latlng, e.target._zoom);
   });
     this.http.get(this.capitals).subscribe((res: any) => {
       for (const c of res.features) {

@@ -28,7 +28,7 @@ export class MarkerService {
           processedImages = response.processed;
         });
         // marker.bindPopup(this.popupService.makeCapitalPopup(c.properties));
-        marker.bindPopup(() => this.popupService.createCustomPopup(image,processedImages)).openPopup();
+        marker.bindPopup(() => this.popupService.createCustomPopup(image,processedImages),{minWidth	:400,maxWidth: 750,keepInView:true}).openPopup();
         marker.addTo(map);
       }
     });

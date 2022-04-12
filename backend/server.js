@@ -7,9 +7,7 @@ const MongoDBSession = require('connect-mongodb-session')(session);
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-
-
-
+const LogObject = require('./controllers/utils/logs');
 
 
 
@@ -65,26 +63,36 @@ app.use(express.static(filePath));
 app.get('/reset',isAuth,(req,res)=>{
   const user = req.session.userId;
   const userPath = path.join(__dirname,'map','output',user);
-  let resFlag = false;
+  const logObject = new LogObject();
+  logObject.path = req.originalUrl;
   try{
     if(fs.existsSync(userPath)){
       try{
         fs.rmSync(userPath, { recursive: true, force: true });
-        resFlag = true;
+        logObject.message = "folder exists, successfully deleted";
+        console.log(logObject);
+        res.redirect('/map-ui');
+        
       }
       catch(e){
         console.error(e);
-        console.log("could not delete");
-        resFlag = false;
+        console.error("folder exists but could not delete");
+        res.status(500).json({message: 'Something went wrong'});
+        
       }
+    }
+    else{
+      logObject.message ="folder does not exist";
+      console.log(logObject);
+      res.redirect('/map-ui');
+      
     }
   }
   catch(e){
     console.error(e);
-    console.log("outer catch");
-    resFlag = false;
+    console.error("path may not be proper");
+    res.redirect('/map-ui');
   }
-  resFlag === true ? res.redirect('/map-ui') : res.status(500).json({message: 'Something went wrong'});
 })
 app.get('/map-ui',isAuth,(req,res)=>{
   res.sendFile(path.join(__dirname,'..','dist','starfleet','index.html'));

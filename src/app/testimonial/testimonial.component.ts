@@ -18,13 +18,7 @@ export class TestimonialComponent implements OnInit {
       services venture that evolved into the $300 million, Firstsource
       Solutions. His first Canadian start-up, Yactraq, is a leading global
       provider in AI/ML based speech analytics.`
-    },
-    {
-      name: 'Shapoor Marfatia',
-      img: '../../assets/img/shapoor.png', 
-      title: 'SVP Technology',
-      description: `Shapoor is an IT Solutions Architect working on AWS, AI Solutions, DevOps and Micro-Services with a passion for space technology and business innovation. He is an expert at synthesizing and communicating insights and recommendations to audiences of varying levels of technical sophistication. Shapoor managed multi-million dollar research funds as the COO of the only Canada-India Research Centres of Excellence (NCE) funded by ISED; facilitated over 40 projects and 7 spin-off companies arising from cutting-edge research. Earlier, as the director of business development at UBC he had led the growth charter for international business. Shapoor holds an MBA from UBC and is an alumnus of IIT Bombay (BTech-Aerospace & MTech-Reliability).`
-    },
+    }
   ];
   createRange(i: number){
    
